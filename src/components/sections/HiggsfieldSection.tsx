@@ -56,8 +56,8 @@ export const HiggsfieldSection = () => {
                   {pipelineSteps.map((step, index) => (
                     <div key={index} className="flex items-center">
                       <div className="flex flex-col items-center gap-2">
-                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#dffb24] flex items-center justify-center">
-                          <step.icon size={22} strokeWidth={2} className="text-white" />
+                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white flex items-center justify-center border border-[#dffb24]/30">
+                          <step.icon size={22} strokeWidth={2} className="text-[#dffb24]" />
                         </div>
                         <span className="text-xs md:text-sm font-medium">{step.label}</span>
                       </div>
