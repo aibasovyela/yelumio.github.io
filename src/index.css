@@ -338,16 +338,16 @@
   }
 
   .animate-float-fast {
-    animation: float-fast 2.5s ease-in-out infinite;
+    animation: float-fast 3.5s ease-in-out infinite;
   }
 
   .animate-float-fast-delayed {
-    animation: float-fast 2.5s ease-in-out infinite;
-    animation-delay: 0.6s;
+    animation: float-fast 3.5s ease-in-out infinite;
+    animation-delay: 0.8s;
   }
 
   .animate-float-tilted {
-    animation: float-tilted 2.5s ease-in-out infinite;
+    animation: float-tilted 3.5s ease-in-out infinite;
   }
 
   /* Pulse glow */

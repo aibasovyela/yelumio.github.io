@@ -108,16 +108,19 @@ export const HeroSection = () => {
             
             {/* Main photo container */}
             <div className="relative">
-              {/* Photo with stylish frame */}
-              <div className="relative glass-card p-3 rounded-2xl animate-float-tilted cursor-pointer transition-transform duration-300 hover:scale-105">
-                <div className="relative overflow-hidden rounded-xl">
-                  <img
-                    src={authorPhoto} 
-                    alt="Автор курса" 
-                    className="w-full max-w-[280px] md:max-w-xs h-auto object-cover rounded-xl"
-                  />
-                  {/* Subtle gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
+              {/* Wrapper for hover scale effect */}
+              <div className="transition-transform duration-300 hover:scale-105 cursor-pointer">
+                {/* Photo with stylish frame */}
+                <div className="relative glass-card p-3 rounded-2xl animate-float-tilted">
+                  <div className="relative overflow-hidden rounded-xl">
+                    <img
+                      src={authorPhoto} 
+                      alt="Автор курса" 
+                      className="w-full max-w-[280px] md:max-w-xs h-auto object-cover rounded-xl"
+                    />
+                    {/* Subtle gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
+                  </div>
                 </div>
               </div>
 
