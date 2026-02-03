@@ -90,11 +90,11 @@ export const Module0Section = () => {
               <GlassCard className="space-y-4 h-full">
                 <div className="flex items-center gap-4">
                   <IconBox icon={module.icon} />
-                  <h3 className="text-xl font-bold">{module.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground">{module.title}</h3>
                 </div>
                 <ul className="space-y-2">
                   {module.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2 text-secondary-foreground/80">
+                    <li key={i} className="flex items-start gap-2 text-foreground/80">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span>{point}</span>
                     </li>
