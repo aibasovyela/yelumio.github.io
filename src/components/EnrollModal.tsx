@@ -22,7 +22,7 @@ export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md glass-card border-primary/20">
+      <DialogContent className="sm:max-w-md bg-background/95 backdrop-blur-xl border-primary/20 rounded-2xl">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
             Записаться на курс
