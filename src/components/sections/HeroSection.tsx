@@ -2,6 +2,7 @@ import { ArrowRight, Play, Lightbulb, Camera, Video, Music, Mic } from "lucide-r
 import { useState, useEffect } from "react";
 import { EnrollModal } from "@/components/EnrollModal";
 import { Typewriter } from "@/hooks/useTypewriter";
+import authorPhoto from "@/assets/author-photo.png";
 
 export const HeroSection = () => {
   const [showSubtitle, setShowSubtitle] = useState(false);
@@ -98,68 +99,61 @@ export const HeroSection = () => {
               </div>
             </div>
 
-          {/* Right Visual */}
-          <div className="relative">
-            {/* Main mockup container */}
+          {/* Right Visual - Author Photo */}
+          <div className="relative flex items-center justify-center">
+            {/* Decorative glow behind photo */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-80 h-80 md:w-96 md:h-96 bg-primary/20 rounded-full blur-3xl" />
+            </div>
+            
+            {/* Main photo container */}
             <div className="relative">
-              {/* Laptop mockup */}
-              <div className="glass-card p-4 animate-float">
-                <div className="bg-foreground/5 rounded-xl aspect-video flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
-                  <div className="text-center space-y-3 relative z-10">
-                    <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/20 flex items-center justify-center">
-                      <Play size={28} className="text-foreground ml-1" />
-                    </div>
-                    <p className="text-sm font-medium">Видео-урок</p>
-                  </div>
+              {/* Photo with stylish frame */}
+              <div className="relative glass-card p-3 rounded-2xl animate-float">
+                <div className="relative overflow-hidden rounded-xl">
+                  <img 
+                    src={authorPhoto} 
+                    alt="Автор курса" 
+                    className="w-full max-w-md h-auto object-cover rounded-xl"
+                  />
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
                 </div>
               </div>
 
-              {/* Floating UI panels */}
-              <div className="absolute -top-4 -left-4 glass-card p-3 animate-float-delayed">
+              {/* Floating UI panels around photo */}
+              <div className="absolute -top-4 -left-4 glass-card p-3 animate-float-delayed shadow-lg">
                 <div className="flex items-center gap-2">
                   <Lightbulb size={20} className="text-primary" strokeWidth={1.5} />
                   <span className="text-xs font-medium">IDEA</span>
                 </div>
               </div>
 
-              <div className="absolute top-1/4 -right-6 glass-card p-3 animate-float">
+              <div className="absolute top-1/4 -right-6 glass-card p-3 animate-float shadow-lg">
                 <div className="flex items-center gap-2">
                   <Camera size={20} className="text-primary" strokeWidth={1.5} />
                   <span className="text-xs font-medium">PHOTO</span>
                 </div>
               </div>
 
-              <div className="absolute bottom-1/3 -left-8 glass-card p-3 animate-float-delayed">
+              <div className="absolute bottom-1/3 -left-8 glass-card p-3 animate-float-delayed shadow-lg">
                 <div className="flex items-center gap-2">
                   <Video size={20} className="text-primary" strokeWidth={1.5} />
                   <span className="text-xs font-medium">VIDEO</span>
                 </div>
               </div>
 
-              <div className="absolute -bottom-4 right-1/4 glass-card p-3 animate-float">
+              <div className="absolute -bottom-4 right-1/4 glass-card p-3 animate-float shadow-lg">
                 <div className="flex items-center gap-2">
                   <Music size={20} className="text-primary" strokeWidth={1.5} />
                   <span className="text-xs font-medium">SOUND</span>
                 </div>
               </div>
 
-              <div className="absolute bottom-1/4 -right-4 glass-card p-3 animate-float-delayed">
+              <div className="absolute bottom-1/4 -right-4 glass-card p-3 animate-float-delayed shadow-lg">
                 <div className="flex items-center gap-2">
                   <Mic size={20} className="text-primary" strokeWidth={1.5} />
                   <span className="text-xs font-medium">SPEECH</span>
-                </div>
-              </div>
-
-              {/* Phone mockup */}
-              <div className="absolute -bottom-8 -left-12 w-32 glass-card p-2 animate-float-delayed">
-                <div className="bg-foreground/5 rounded-lg aspect-[9/16] flex items-center justify-center">
-                  <div className="text-center space-y-1">
-                    <div className="w-6 h-6 mx-auto rounded bg-primary/20 flex items-center justify-center">
-                      <Play size={12} className="text-foreground ml-0.5" />
-                    </div>
-                    <p className="text-[8px] font-medium">Чек-лист</p>
-                  </div>
                 </div>
               </div>
             </div>
