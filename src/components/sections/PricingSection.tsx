@@ -173,15 +173,14 @@ export const PricingSection = () => {
 
           {/* Pro Plan */}
           <ScrollReveal delay={200}>
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-primary/30 rounded-3xl blur-lg opacity-50" />
+            <div className="relative group pt-4">
+              <div className="absolute -inset-1 top-3 bg-gradient-to-r from-primary/50 to-primary/30 rounded-3xl blur-lg opacity-50" />
+              <div className="absolute -top-0 right-6 z-10">
+                <span className="rounded-full bg-primary text-primary-foreground font-semibold text-sm px-3 py-1">
+                  Рекомендуем
+                </span>
+              </div>
               <GlassCard className="relative p-6 md:p-8 space-y-6 border-primary/30">
-                <div className="absolute -top-3 right-6">
-                  <span className="rounded-full bg-primary text-primary-foreground font-semibold text-sm px-3 py-1">
-                    Рекомендуем
-                  </span>
-                </div>
-
                 <div>
                   <h3 className="text-2xl font-bold">{proPlan.name}</h3>
                   <p className="text-sm text-primary font-medium mt-1">{proPlan.highlight}</p>
@@ -213,15 +212,14 @@ export const PricingSection = () => {
 
           {/* Elite Plan */}
           <ScrollReveal delay={300}>
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#dffb24]/40 to-[#dffb24]/20 rounded-3xl blur-lg opacity-40 transition-opacity duration-300 group-hover:opacity-80" />
-              <GlassCard className="relative p-6 md:p-8 space-y-6 border-[#dffb24]/50 transition-all duration-300 group-hover:shadow-[0_0_40px_rgba(223,251,36,0.4)]">
-                <div className="absolute -top-3 right-6">
-                  <span className="rounded-full bg-[#dffb24] text-foreground font-semibold text-sm px-3 py-1">
-                    Premium
-                  </span>
-                </div>
-
+            <div className="relative group pt-4">
+              <div className="absolute -inset-1 top-3 bg-gradient-to-r from-[#dffb24]/40 to-[#dffb24]/20 rounded-3xl blur-lg opacity-40 transition-opacity duration-300 group-hover:opacity-80" />
+              <div className="absolute -top-0 right-6 z-10">
+                <span className="rounded-full bg-[#dffb24] text-foreground font-semibold text-sm px-3 py-1">
+                  Premium
+                </span>
+              </div>
+              <GlassCard className="relative p-6 md:p-8 space-y-6 border-[#dffb24]/50 transition-all duration-300 group-hover:shadow-[0_0_40px_rgba(223,251,36,0.4)] group-hover:bg-[#dffb24]/5" hover={false}>
                 <div>
                   <h3 className="text-2xl font-bold">{elitePlan.name}</h3>
                   <p className="text-sm text-[#9ab800] font-medium mt-1">{elitePlan.highlight}</p>
