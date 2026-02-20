@@ -20,7 +20,7 @@ const Index = () => {
         
         {/* Module0Section and PlatformsSection hidden to shorten the page */}
         
-        <HiggsfieldSection />
+        {/* HiggsfieldSection hidden */}
         
         <div id="program">
           <CourseProgramSection />
