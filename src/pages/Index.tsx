@@ -33,7 +33,7 @@ const Index = () => {
           
           <HowItWorksSection />
           
-          <ResultsSection />
+          
           
           <div id="pricing">
             <PricingSection />
