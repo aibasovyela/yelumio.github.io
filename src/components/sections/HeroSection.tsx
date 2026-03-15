@@ -1,10 +1,10 @@
 import { ArrowRight, Play, Lightbulb, Camera, Video, Music, Mic } from "lucide-react";
 import { useState } from "react";
 import { EnrollModal } from "@/components/EnrollModal";
-import { CountdownTimer } from "@/components/CountdownTimer";
+
 import authorPhoto from "@/assets/author-photo.png";
 
-const COURSE_START = new Date("2026-03-10T10:00:00");
+
 
 export const HeroSection = () => {
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
@@ -24,7 +24,7 @@ export const HeroSection = () => {
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
                 <span className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-base font-bold tracking-wide uppercase">Начало 10 марта</span>
+                <span className="text-base font-bold tracking-wide uppercase">Начало 15 апреля</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl font-bold leading-tight lg:text-4xl">
@@ -55,10 +55,6 @@ export const HeroSection = () => {
                 </button>
               </div>
 
-              <div className="pt-2">
-                <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide font-medium">До старта осталось:</p>
-                <CountdownTimer targetDate={COURSE_START} />
-              </div>
             </div>
 
           {/* Right Visual - Author Photo */}
