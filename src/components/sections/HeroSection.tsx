@@ -1,7 +1,7 @@
 import { ArrowRight, Play, Lightbulb, Camera, Video, Music, Mic } from "lucide-react";
 import { useState } from "react";
 import { EnrollModal } from "@/components/EnrollModal";
-import { CountdownTimer } from "@/components/CountdownTimer";
+
 import authorPhoto from "@/assets/author-photo.png";
 
 const COURSE_START = new Date("2026-03-10T10:00:00");
