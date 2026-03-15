@@ -24,7 +24,7 @@ export const HeroSection = () => {
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
                 <span className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-base font-bold tracking-wide uppercase">Начало 10 марта</span>
+                <span className="text-base font-bold tracking-wide uppercase">Начало 15 апреля</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl font-bold leading-tight lg:text-4xl">
