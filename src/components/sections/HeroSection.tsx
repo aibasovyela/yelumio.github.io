@@ -22,9 +22,12 @@ export const HeroSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
-                <span className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-base font-bold tracking-wide uppercase">Начало 15 апреля</span>
+              <div className="space-y-3">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gradient">Поток 2</h2>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
+                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  <span className="text-base font-bold tracking-wide uppercase">Начало 15 апреля</span>
+                </div>
               </div>
 
               <h1 className="text-4xl md:text-5xl font-bold leading-tight lg:text-4xl">
