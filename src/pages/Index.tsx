@@ -34,7 +34,8 @@ const Index = () => {
           
           <HowItWorksSection />
           
-          
+          <WhyNowSection />
+          <NewEraSection />
           
           <div id="pricing">
             <PricingSection />
