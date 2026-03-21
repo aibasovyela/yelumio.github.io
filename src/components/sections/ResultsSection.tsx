@@ -31,12 +31,7 @@ const LazyVideo = ({ src }: { src: string }) => {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
       { rootMargin: "300px" }
     );
     observer.observe(el);
@@ -45,20 +40,11 @@ const LazyVideo = ({ src }: { src: string }) => {
 
   return (
     <div ref={ref} className="w-full h-full relative">
-      {/* Skeleton placeholder */}
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-muted/40 animate-pulse rounded-xl" />
-      )}
+      {!isLoaded && <div className="absolute inset-0 bg-secondary animate-pulse rounded-xl" />}
       {isVisible && (
-        <video
-          ref={videoRef}
-          src={src}
+        <video ref={videoRef} src={src}
           className={`w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
+          autoPlay loop muted playsInline preload="metadata"
           onLoadedData={() => setIsLoaded(true)}
         />
       )}
@@ -67,11 +53,7 @@ const LazyVideo = ({ src }: { src: string }) => {
 };
 
 export const ResultsSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    slidesToScroll: 1,
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", slidesToScroll: 1 });
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -88,17 +70,15 @@ export const ResultsSection = () => {
     onSelect();
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
+    return () => { emblaApi.off("select", onSelect); };
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="section-padding bg-primary/5">
+    <section className="section-padding bg-secondary/30">
       <div className="container">
         <ScrollReveal>
           <div className="text-center mb-12 space-y-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif">
               Чему вы научитесь?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -109,14 +89,11 @@ export const ResultsSection = () => {
 
         <ScrollReveal>
           <div className="relative">
-            <div ref={emblaRef} className="overflow-hidden rounded-2xl">
+            <div ref={emblaRef} className="overflow-hidden rounded-xl">
               <div className="flex gap-4">
                 {slides.map((slide, index) => (
-                  <div
-                    key={index}
-                    className="flex-none w-[220px] sm:w-[260px] md:w-[280px] lg:w-[300px]"
-                  >
-                    <div className="glass-card overflow-hidden group cursor-pointer bg-muted/20">
+                  <div key={index} className="flex-none w-[220px] sm:w-[260px] md:w-[280px] lg:w-[300px]">
+                    <div className="overflow-hidden rounded-xl border border-border bg-card cursor-pointer">
                       <div className="aspect-[9/16] relative overflow-hidden">
                         {slide.type === "video" ? (
                           <LazyVideo src={slide.src} />
@@ -124,12 +101,10 @@ export const ResultsSection = () => {
                           <img
                             src={slide.src}
                             alt={`Пример работы ${index + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="w-full h-full object-cover"
                             loading={index < 4 ? "eager" : "lazy"}
                             decoding="async"
-                            onLoad={(e) => {
-                              e.currentTarget.style.opacity = "1";
-                            }}
+                            onLoad={(e) => { e.currentTarget.style.opacity = "1"; }}
                             style={{ opacity: 0, transition: "opacity 0.3s ease-in-out" }}
                           />
                         )}
@@ -140,32 +115,22 @@ export const ResultsSection = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => emblaApi?.scrollPrev()}
-              disabled={!canScrollPrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-background/90 backdrop-blur border border-border flex items-center justify-center shadow-lg transition-all hover:bg-primary hover:text-primary-foreground disabled:opacity-30 disabled:pointer-events-none"
-              aria-label="Previous"
-            >
+            <button onClick={() => emblaApi?.scrollPrev()} disabled={!canScrollPrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center shadow-lg transition-all hover:bg-primary hover:text-primary-foreground disabled:opacity-30 disabled:pointer-events-none"
+              aria-label="Previous">
               <ChevronLeft size={20} />
             </button>
-            <button
-              onClick={() => emblaApi?.scrollNext()}
-              disabled={!canScrollNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-background/90 backdrop-blur border border-border flex items-center justify-center shadow-lg transition-all hover:bg-primary hover:text-primary-foreground disabled:opacity-30 disabled:pointer-events-none"
-              aria-label="Next"
-            >
+            <button onClick={() => emblaApi?.scrollNext()} disabled={!canScrollNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center shadow-lg transition-all hover:bg-primary hover:text-primary-foreground disabled:opacity-30 disabled:pointer-events-none"
+              aria-label="Next">
               <ChevronRight size={20} />
             </button>
 
             <div className="flex justify-center gap-2 mt-6">
               {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => emblaApi?.scrollTo(index)}
+                <button key={index} onClick={() => emblaApi?.scrollTo(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === selectedIndex
-                      ? "bg-primary w-6"
-                      : "bg-foreground/20 hover:bg-foreground/40"
+                    index === selectedIndex ? "bg-primary w-6" : "bg-foreground/20 hover:bg-foreground/40"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />

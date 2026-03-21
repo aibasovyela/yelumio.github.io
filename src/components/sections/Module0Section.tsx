@@ -2,6 +2,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { IconBox } from "@/components/ui/IconBox";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { Lightbulb, FileText, Camera, Video, Music, AlertCircle } from "lucide-react";
+
 const modules = [{
   icon: Lightbulb,
   title: "ИДЕЯ",
@@ -23,21 +24,23 @@ const modules = [{
   title: "МУЗЫКА И РЕЧЬ",
   points: ["Почему звук делает «дорого»", "Музыка, саунд-дизайн, голос", "Когда нужен голос, а когда нет"]
 }];
+
 const mistakes = ["Короткие промпты", "Хаотичное движение", "Красивая картинка без смысла", "Игнор звука", "Ожидание «волшебной кнопки»", "Желание сделать всё быстро без понимания процесса"];
+
 export const Module0Section = () => {
-  return <section className="section-padding relative overflow-hidden py-0 pt-0">
+  return (
+    <section className="section-padding relative overflow-hidden py-0 pt-0">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
       </div>
 
       <div className="container relative z-10">
-        {/* Section header */}
         <ScrollReveal>
           <div className="text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-4">
-              <span className="text-sm font-semibold">С ЧЕГО ВСЁ НАЧИНАЕТСЯ</span>
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
+              <span className="text-sm font-semibold tracking-wide text-primary">С ЧЕГО ВСЁ НАЧИНАЕТСЯ</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif">
               Модуль 0. Фундамент ИИ-креатива
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -47,36 +50,41 @@ export const Module0Section = () => {
           </div>
         </ScrollReveal>
 
-        {/* Module cards grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {modules.map((module, index) => <ScrollReveal key={index} delay={index * 100}>
+          {modules.map((module, index) => (
+            <ScrollReveal key={index} delay={index * 100}>
               <GlassCard className="space-y-4 h-full">
                 <div className="flex items-center gap-4">
                   <IconBox icon={module.icon} />
-                  <h3 className="text-xl font-bold text-foreground">{module.title}</h3>
+                  <h3 className="text-xl font-bold font-serif">{module.title}</h3>
                 </div>
                 <ul className="space-y-2">
-                  {module.points.map((point, i) => <li key={i} className="flex items-start gap-2 text-foreground/80">
+                  {module.points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2 text-muted-foreground">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span>{point}</span>
-                    </li>)}
+                    </li>
+                  ))}
                 </ul>
               </GlassCard>
-            </ScrollReveal>)}
+            </ScrollReveal>
+          ))}
 
-          {/* Mistakes card - spans full width on lg */}
-          <GlassCard className="md:col-span-2 lg:col-span-3 lg:max-w-3xl lg:mx-auto bg-destructive-foreground border-destructive/20">
+          <GlassCard className="md:col-span-2 lg:col-span-3 lg:max-w-3xl lg:mx-auto border-destructive/20">
             <div className="flex items-center gap-4 mb-6">
               <IconBox icon={AlertCircle} className="bg-destructive/15" />
-              <h3 className="text-xl font-bold">Типичные ошибки новичков</h3>
+              <h3 className="text-xl font-bold font-serif">Типичные ошибки новичков</h3>
             </div>
             <div className="flex flex-wrap gap-3">
-              {mistakes.map((mistake, index) => <span key={index} className="px-4 py-2 rounded-full bg-foreground/5 text-sm font-medium border border-foreground/10">
+              {mistakes.map((mistake, index) => (
+                <span key={index} className="px-4 py-2 rounded-full bg-secondary text-sm font-medium border border-border">
                   {mistake}
-                </span>)}
+                </span>
+              ))}
             </div>
           </GlassCard>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
