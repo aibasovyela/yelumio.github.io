@@ -7,6 +7,7 @@ const CourseProgramSection = lazy(() => import("@/components/sections/CourseProg
 const HowItWorksSection = lazy(() => import("@/components/sections/HowItWorksSection").then(m => ({ default: m.HowItWorksSection })));
 const WhyNowSection = lazy(() => import("@/components/sections/WhyNowSection").then(m => ({ default: m.WhyNowSection })));
 const NewEraSection = lazy(() => import("@/components/sections/NewEraSection").then(m => ({ default: m.NewEraSection })));
+const ShowcaseSection = lazy(() => import("@/components/sections/ShowcaseSection").then(m => ({ default: m.ShowcaseSection })));
 const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(m => ({ default: m.PricingSection })));
 const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
 const Footer = lazy(() => import("@/components/sections/Footer").then(m => ({ default: m.Footer })));
@@ -42,6 +43,10 @@ const Index = () => {
 
           <div className="section-dark">
             <NewEraSection />
+          </div>
+
+          <div className="section-light">
+            <ShowcaseSection />
           </div>
           
           <div id="pricing" className="section-light">
