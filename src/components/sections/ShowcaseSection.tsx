@@ -2,6 +2,7 @@ import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const videos = [
   "/carousel/showcase-01.mov",
@@ -13,6 +14,7 @@ const videos = [
 ];
 
 export const ShowcaseSection = () => {
+  const { t } = useLanguage();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
@@ -35,7 +37,6 @@ export const ShowcaseSection = () => {
     return () => { emblaApi.off("select", onSelect); };
   }, [emblaApi, onSelect]);
 
-  // Play/pause videos based on selection
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
@@ -54,8 +55,8 @@ export const ShowcaseSection = () => {
         <ScrollReveal>
           <div className="text-center mb-12 space-y-4">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-              Такие кадры вы сможете создавать<br />
-              <span className="text-gradient">по окончанию курса</span>
+              {t.showcase.title}<br />
+              <span className="text-gradient">{t.showcase.titleGradient}</span>
             </h2>
           </div>
         </ScrollReveal>

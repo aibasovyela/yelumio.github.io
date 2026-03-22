@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { EnrollModal } from "@/components/EnrollModal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const StickyCTA = () => {
   const [visible, setVisible] = useState(false);
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 600);
@@ -22,14 +24,14 @@ export const StickyCTA = () => {
         <div className="bg-[hsl(240_5%_10%/0.7)] backdrop-blur-2xl border-t border-[hsl(0_0%_100%/0.08)] py-3 px-4">
           <div className="container flex items-center justify-between gap-4">
             <div className="hidden sm:block">
-              <p className="text-sm font-semibold">Старт курса 15 апреля</p>
-              <p className="text-xs text-muted-foreground">Количество мест ограничено</p>
+              <p className="text-sm font-semibold">{t.stickyCta.startDate}</p>
+              <p className="text-xs text-muted-foreground">{t.stickyCta.limited}</p>
             </div>
             <button
               className="btn-primary gap-2 whitespace-nowrap ml-auto"
               onClick={() => setIsEnrollOpen(true)}
             >
-              Записаться на курс
+              {t.stickyCta.enrollBtn}
               <ArrowRight size={16} />
             </button>
           </div>

@@ -3,59 +3,17 @@ import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { Check, Star, Users, Video, FileText, MessageCircle, Zap, Briefcase, Sparkles, Crown } from "lucide-react";
 import { useState } from "react";
 import { PricingEnrollModal } from "@/components/PricingEnrollModal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const lightPlan = {
-  name: "Light", price: "50 000", currency: "₸",
-  features: [
-    { icon: Video, text: "Доступ ко всем 8 модулям" },
-    { icon: Zap, text: "5–6 часов видео" },
-    { icon: FileText, text: "Презентации и инструкции" },
-  ]
-};
-
-const basicPlan = {
-  name: "Basic", price: "70 000", currency: "₸",
-  features: [
-    { icon: Video, text: "Доступ ко всем 8 модулям" },
-    { icon: Zap, text: "5–6 часов видео" },
-    { icon: FileText, text: "Презентации и инструкции" },
-    { icon: Check, text: "Домашние задания" },
-    { icon: Check, text: "Проверка ДЗ" },
-    { icon: MessageCircle, text: "Обратная связь по работам" },
-  ]
-};
-
-const proPlan = {
-  name: "PRO / Mentor", price: "120 000", currency: "₸", highlight: "Максимум результата",
-  features: [
-    { icon: Check, text: "Всё из тарифа Basic" },
-    { icon: Star, text: "Личное участие автора курса" },
-    { icon: Users, text: "2 живых созвона в неделю" },
-    { icon: Zap, text: "Разбор каждого креатива" },
-    { icon: Check, text: "Детальная работа с кадрами, светом, движением" },
-    { icon: MessageCircle, text: "Ответы на вопросы вживую" },
-    { icon: Star, text: "Ускоренный рост и глубина" },
-  ]
-};
-
-const elitePlan = {
-  name: "ELITE / Studio", price: "200 000", currency: "₸",
-  highlight: "Работа как с креативной студией",
-  description: "Это уже не просто обучение, а совместное продакшн-мышление.",
-  features: [
-    { icon: Check, text: "Всё из тарифа PRO / Mentor" },
-    { icon: Briefcase, text: "1 реальный платный заказ от компании (30 000 ₸)", sub: "портфолио, клиенты, бренд — создаем на деле" },
-    { icon: Sparkles, text: "Совместная сборка 1 креатива «под ключ»", sub: "идея → промпт → визуал → видео → звук → финал" },
-    { icon: Zap, text: "Разбор промптов и пайплайна до идеала" },
-    { icon: Star, text: "Приоритетная обратная связь" },
-    { icon: Crown, text: "Личное видение автора курса" },
-  ],
-  footer: "Тем, кто хочет результат уровня студии, а не просто обучение."
-};
+const lightIcons = [Video, Zap, FileText];
+const basicIcons = [Video, Zap, FileText, Check, Check, MessageCircle];
+const proIcons = [Check, Star, Users, Zap, Check, MessageCircle, Star];
+const eliteIcons = [Check, Briefcase, Sparkles, Zap, Star, Crown];
 
 export const PricingSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState({ name: "", price: "" });
+  const { t } = useLanguage();
 
   const openModal = (name: string, price: string) => {
     setSelectedPlan({ name, price });
@@ -69,10 +27,10 @@ export const PricingSection = () => {
           <ScrollReveal>
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                Выберите свой тариф
+                {t.pricing.title}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Четыре формата обучения для разных целей и темпов
+                {t.pricing.subtitle}
               </p>
             </div>
           </ScrollReveal>
@@ -82,24 +40,27 @@ export const PricingSection = () => {
             <ScrollReveal delay={100}>
               <GlassCard className="p-6 md:p-8 space-y-6" hover={false}>
                 <div>
-                  <h3 className="text-2xl font-bold">{lightPlan.name}</h3>
+                  <h3 className="text-2xl font-bold">Light</h3>
                   <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-3xl md:text-4xl font-bold">{lightPlan.price}</span>
-                    <span className="text-lg text-muted-foreground">{lightPlan.currency}</span>
+                    <span className="text-3xl md:text-4xl font-bold">50 000</span>
+                    <span className="text-lg text-muted-foreground">₸</span>
                   </div>
                 </div>
                 <ul className="space-y-3">
-                  {lightPlan.features.map((f, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
-                        <f.icon size={12} className="text-primary" />
-                      </div>
-                      <span className="text-sm">{f.text}</span>
-                    </li>
-                  ))}
+                  {t.pricing.light.features.map((text, i) => {
+                    const Icon = lightIcons[i];
+                    return (
+                      <li key={i} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
+                          <Icon size={12} className="text-primary" />
+                        </div>
+                        <span className="text-sm">{text}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
-                <button className="btn-secondary w-full" onClick={() => openModal(lightPlan.name, lightPlan.price)}>
-                  Выбрать Light
+                <button className="btn-secondary w-full" onClick={() => openModal("Light", "50 000")}>
+                  {t.pricing.choosePlan} Light
                 </button>
               </GlassCard>
             </ScrollReveal>
@@ -108,24 +69,27 @@ export const PricingSection = () => {
             <ScrollReveal delay={150}>
               <GlassCard className="p-6 md:p-8 space-y-6" hover={false}>
                 <div>
-                  <h3 className="text-2xl font-bold">{basicPlan.name}</h3>
+                  <h3 className="text-2xl font-bold">Basic</h3>
                   <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-3xl md:text-4xl font-bold">{basicPlan.price}</span>
-                    <span className="text-lg text-muted-foreground">{basicPlan.currency}</span>
+                    <span className="text-3xl md:text-4xl font-bold">70 000</span>
+                    <span className="text-lg text-muted-foreground">₸</span>
                   </div>
                 </div>
                 <ul className="space-y-3">
-                  {basicPlan.features.map((f, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
-                        <f.icon size={12} className="text-primary" />
-                      </div>
-                      <span className="text-sm">{f.text}</span>
-                    </li>
-                  ))}
+                  {t.pricing.basic.features.map((text, i) => {
+                    const Icon = basicIcons[i];
+                    return (
+                      <li key={i} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
+                          <Icon size={12} className="text-primary" />
+                        </div>
+                        <span className="text-sm">{text}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
-                <button className="btn-secondary w-full" onClick={() => openModal(basicPlan.name, basicPlan.price)}>
-                  Выбрать Basic
+                <button className="btn-secondary w-full" onClick={() => openModal("Basic", "70 000")}>
+                  {t.pricing.choosePlan} Basic
                 </button>
               </GlassCard>
             </ScrollReveal>
@@ -136,33 +100,36 @@ export const PricingSection = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 rounded-2xl blur-lg opacity-50" />
                 <div className="absolute -top-4 right-6 z-10">
                   <span className="rounded-full bg-primary text-primary-foreground font-semibold text-sm px-3 py-1">
-                    Рекомендуем
+                    {t.pricing.recommend}
                   </span>
                 </div>
                 <GlassCard className="relative p-6 md:p-8 space-y-6 border-primary/30">
                   <div>
-                    <h3 className="text-2xl font-bold">{proPlan.name}</h3>
-                    <p className="text-sm text-primary font-medium mt-1">{proPlan.highlight}</p>
+                    <h3 className="text-2xl font-bold">PRO / Mentor</h3>
+                    <p className="text-sm text-primary font-medium mt-1">{t.pricing.maxResult}</p>
                     <div className="mt-4 flex items-baseline gap-1">
-                      <span className="text-3xl md:text-4xl font-bold">{proPlan.price}</span>
-                      <span className="text-lg text-muted-foreground">{proPlan.currency}</span>
+                      <span className="text-3xl md:text-4xl font-bold">120 000</span>
+                      <span className="text-lg text-muted-foreground">₸</span>
                     </div>
                   </div>
                   <ul className="space-y-3">
-                    {proPlan.features.map((f, i) => (
-                      <li key={i} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                          <f.icon size={12} className="text-primary" />
-                        </div>
-                        <span className="text-sm">{f.text}</span>
-                      </li>
-                    ))}
+                    {t.pricing.pro.features.map((text, i) => {
+                      const Icon = proIcons[i];
+                      return (
+                        <li key={i} className="flex items-center gap-3">
+                          <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <Icon size={12} className="text-primary" />
+                          </div>
+                          <span className="text-sm">{text}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
-                  <button className="btn-primary w-full" onClick={() => openModal(proPlan.name, proPlan.price)}>
-                    Выбрать PRO
+                  <button className="btn-primary w-full" onClick={() => openModal("PRO / Mentor", "120 000")}>
+                    {t.pricing.choosePlan} PRO
                   </button>
                   <p className="text-xs text-center text-muted-foreground">
-                    Подходит тем, кто хочет максимум результата и личный разбор
+                    {t.pricing.proFooter}
                   </p>
                 </GlassCard>
               </div>
@@ -174,45 +141,49 @@ export const PricingSection = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl blur-lg opacity-40 transition-opacity duration-300 group-hover:opacity-70" />
                 <div className="absolute -top-4 right-6 z-10">
                   <span className="rounded-full bg-primary text-primary-foreground font-semibold text-sm px-3 py-1">
-                    Premium
+                    {t.pricing.premium}
                   </span>
                 </div>
                 <GlassCard className="relative p-6 md:p-8 space-y-6 border-primary/20" hover={false}>
                   <div>
-                    <h3 className="text-2xl font-bold">{elitePlan.name}</h3>
-                    <p className="text-sm text-primary font-medium mt-1">{elitePlan.highlight}</p>
+                    <h3 className="text-2xl font-bold">ELITE / Studio</h3>
+                    <p className="text-sm text-primary font-medium mt-1">{t.pricing.studioWork}</p>
                     <div className="mt-4 flex items-baseline gap-1">
-                      <span className="text-3xl md:text-4xl font-bold">{elitePlan.price}</span>
-                      <span className="text-lg text-muted-foreground">{elitePlan.currency}</span>
+                      <span className="text-3xl md:text-4xl font-bold">200 000</span>
+                      <span className="text-lg text-muted-foreground">₸</span>
                     </div>
                   </div>
 
                   <div className="text-sm text-muted-foreground italic border-l-2 border-primary/40 pl-3">
-                    {elitePlan.description}
+                    {t.pricing.studioDesc}
                   </div>
 
                   <ul className="space-y-3">
-                    {elitePlan.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <f.icon size={12} className="text-primary" />
-                        </div>
-                        <div>
-                          <span className="text-sm">{f.text}</span>
-                          {f.sub && <p className="text-xs text-muted-foreground mt-0.5">{f.sub}</p>}
-                        </div>
-                      </li>
-                    ))}
+                    {t.pricing.elite.features.map((text, i) => {
+                      const Icon = eliteIcons[i];
+                      const sub = t.pricing.elite.subs[i];
+                      return (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Icon size={12} className="text-primary" />
+                          </div>
+                          <div>
+                            <span className="text-sm">{text}</span>
+                            {sub && <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>}
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   <button 
                     className="btn-primary w-full"
-                    onClick={() => openModal(elitePlan.name, elitePlan.price)}
+                    onClick={() => openModal("ELITE / Studio", "200 000")}
                   >
-                    Выбрать ELITE
+                    {t.pricing.choosePlan} ELITE
                   </button>
 
-                  <p className="text-xs text-center text-muted-foreground">{elitePlan.footer}</p>
+                  <p className="text-xs text-center text-muted-foreground">{t.pricing.studioFooter}</p>
                 </GlassCard>
               </div>
             </ScrollReveal>
