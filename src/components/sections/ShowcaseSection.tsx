@@ -99,14 +99,14 @@ export const ShowcaseSection = () => {
 
             <button
               onClick={() => emblaApi?.scrollPrev()}
-              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card/80 backdrop-blur border border-border flex items-center justify-center shadow-lg transition-all hover:bg-primary hover:text-primary-foreground"
+              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-[hsl(240_4%_16%/0.6)] backdrop-blur-xl border border-[hsl(0_0%_100%/0.1)] flex items-center justify-center shadow-lg transition-all hover:bg-primary hover:text-primary-foreground"
               aria-label="Previous"
             >
               <ChevronLeft size={22} />
             </button>
             <button
               onClick={() => emblaApi?.scrollNext()}
-              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card/80 backdrop-blur border border-border flex items-center justify-center shadow-lg transition-all hover:bg-primary hover:text-primary-foreground"
+              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-[hsl(240_4%_16%/0.6)] backdrop-blur-xl border border-[hsl(0_0%_100%/0.1)] flex items-center justify-center shadow-lg transition-all hover:bg-primary hover:text-primary-foreground"
               aria-label="Next"
             >
               <ChevronRight size={22} />
