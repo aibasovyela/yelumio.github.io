@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 240 5% 12%;
+    --background: 240 5% 10%;
     --foreground: 50 20% 95%;
 
     --card: 240 4% 16%;
     --card-foreground: 50 20% 95%;
 
-    --card-alt: 240 4% 20%;
+    --card-alt: 240 4% 14%;
     --card-alt-foreground: 50 20% 95%;
 
     --popover: 240 4% 18%;
@@ -31,7 +31,7 @@
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 85% 97%;
 
-    --border: 240 4% 22%;
+    --border: 0 0% 100% / 0.08;
     --input: 240 4% 25%;
     --ring: 48 100% 50%;
 
@@ -40,6 +40,12 @@
     --glow-primary: 48 100% 50%;
     --shadow-glow: 0 0 40px hsl(48 100% 50% / 0.2);
     --shadow-glow-lg: 0 0 60px hsl(48 100% 50% / 0.3);
+
+    --glass-bg: 240 4% 16% / 0.6;
+    --glass-bg-light: 240 4% 20% / 0.5;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-blur: 20px;
+    --glass-shine: linear-gradient(135deg, hsl(0 0% 100% / 0.1) 0%, hsl(0 0% 100% / 0.02) 50%, transparent 100%);
 
     --chart-1: 48 100% 50%;
     --chart-2: 42 90% 45%;
@@ -53,7 +59,7 @@
     --sidebar-primary-foreground: 240 6% 7%;
     --sidebar-accent: 240 4% 20%;
     --sidebar-accent-foreground: 50 20% 95%;
-    --sidebar-border: 240 4% 22%;
+    --sidebar-border: 0 0% 100% / 0.08;
     --sidebar-ring: 48 100% 50%;
   }
 }
@@ -75,36 +81,56 @@
 }
 
 @layer components {
-  /* Elegant Card */
+  /* Glass Card — frosted glass effect */
   .glass-card {
-    @apply relative overflow-hidden rounded-xl;
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
+    @apply relative overflow-hidden rounded-2xl;
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.06);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.15), transparent);
+  }
+
   .glass-card-alt {
-    @apply relative overflow-hidden rounded-xl;
-    background: hsl(var(--card-alt));
-    border: 1px solid hsl(var(--border));
+    @apply relative overflow-hidden rounded-2xl;
+    background: hsl(var(--glass-bg-light));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.15);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glass-card-static {
-    @apply relative overflow-hidden rounded-xl;
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
+    @apply relative overflow-hidden rounded-2xl;
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 4px 24px hsl(0 0% 0% / 0.15);
   }
 
   .glass-card:hover,
   .glass-card-alt:hover {
-    border-color: hsl(var(--primary) / 0.3);
-    box-shadow: 0 0 30px hsl(var(--primary) / 0.08);
+    border-color: hsl(var(--primary) / 0.25);
+    box-shadow: 0 8px 40px hsl(var(--primary) / 0.1), inset 0 1px 0 hsl(0 0% 100% / 0.08);
+    transform: translateY(-2px);
   }
 
   /* Alternating section backgrounds */
   .section-light {
-    background: hsl(var(--card-alt));
+    background: hsl(240 4% 12%);
   }
 
   .section-dark {
@@ -116,37 +142,42 @@
     @apply py-16 md:py-24;
   }
 
-  /* Premium Buttons */
+  /* Premium Buttons — glass style */
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-base transition-all duration-300;
     font-family: 'DM Sans', system-ui, sans-serif;
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.3);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px hsl(var(--primary) / 0.4);
+    box-shadow: 0 8px 40px hsl(var(--primary) / 0.5);
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 border;
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-base transition-all duration-300;
     font-family: 'DM Sans', system-ui, sans-serif;
-    border-color: hsl(var(--foreground) / 0.2);
+    border: 1px solid hsl(0 0% 100% / 0.15);
     color: hsl(var(--foreground));
-    background: transparent;
+    background: hsl(0 0% 100% / 0.05);
+    backdrop-filter: blur(12px);
   }
 
   .btn-secondary:hover {
-    border-color: hsl(var(--primary));
+    border-color: hsl(var(--primary) / 0.5);
     color: hsl(var(--primary));
-    background: hsl(var(--primary) / 0.05);
+    background: hsl(var(--primary) / 0.08);
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.15);
   }
 
   /* Icon container */
   .icon-box {
     @apply w-14 h-14 rounded-xl flex items-center justify-center;
-    background: hsl(var(--primary) / 0.15);
+    background: hsl(var(--primary) / 0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--primary) / 0.15);
     color: hsl(var(--primary));
   }
 
