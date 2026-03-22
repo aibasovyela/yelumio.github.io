@@ -1,11 +1,14 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { EnrollModal } from "@/components/EnrollModal";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageContext";
 import logo from "@/assets/logo.png";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <>
@@ -14,20 +17,22 @@ export const Header = () => {
         
         <div className="container relative">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <a href="/" className="flex items-center gap-3 group">
-              <img 
-                src={logo} 
-                alt="Логотип" 
-                className="w-9 h-9 rounded-full object-cover"
-              />
-              <span className="font-semibold text-sm tracking-wide hidden sm:block">Курс по ИИ от Yelumio</span>
-            </a>
+            <div className="flex items-center gap-4">
+              <a href="/" className="flex items-center gap-3 group">
+                <img 
+                  src={logo} 
+                  alt="Логотип" 
+                  className="w-9 h-9 rounded-full object-cover"
+                />
+                <span className="font-semibold text-sm tracking-wide hidden sm:block">{t.header.courseName}</span>
+              </a>
+              <LanguageSwitcher />
+            </div>
 
             <nav className="hidden md:flex items-center gap-8">
-              <a href="#module0" className="text-sm text-muted-foreground hover:text-primary transition-colors">Основа</a>
-              <a href="#program" className="text-sm text-muted-foreground hover:text-primary transition-colors">Программа</a>
-              <a href="#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">Тарифы</a>
-              <a href="#faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">FAQ</a>
+              <a href="#program" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t.header.program}</a>
+              <a href="#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t.header.pricing}</a>
+              <a href="#faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t.header.faq}</a>
             </nav>
 
             <div className="hidden md:block">
@@ -35,7 +40,7 @@ export const Header = () => {
                 className="btn-primary py-2.5 px-6 text-sm"
                 onClick={() => setIsEnrollOpen(true)}
               >
-                Записаться
+                {t.header.enroll}
               </button>
             </div>
 
@@ -46,15 +51,14 @@ export const Header = () => {
 
           {isMenuOpen && (
             <div className="md:hidden absolute top-full left-0 right-0 bg-[hsl(240_5%_10%/0.85)] backdrop-blur-2xl border-b border-[hsl(0_0%_100%/0.08)] p-6 space-y-4">
-              <a href="#module0" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>Фундамент</a>
-              <a href="#program" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>Программа</a>
-              <a href="#pricing" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>Тарифы</a>
-              <a href="#faq" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>FAQ</a>
+              <a href="#program" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.program}</a>
+              <a href="#pricing" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.pricing}</a>
+              <a href="#faq" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.faq}</a>
               <button 
                 className="btn-primary w-full py-3 text-sm mt-4"
                 onClick={() => { setIsMenuOpen(false); setIsEnrollOpen(true); }}
               >
-                Записаться
+                {t.header.enroll}
               </button>
             </div>
           )}
