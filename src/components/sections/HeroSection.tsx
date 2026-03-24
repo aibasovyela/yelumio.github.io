@@ -26,29 +26,29 @@ export const HeroSection = () => {
               </div>
 
               <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-gradient">{t.hero.stream}</h2>
-                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
-                  <span className="text-sm font-semibold tracking-widest uppercase text-primary">{t.hero.startDate}</span>
+                <h2 className="text-4xl md:text-5xl font-bold text-[hsl(240_6%_7%)]">{t.hero.stream}</h2>
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[hsl(240_6%_7%/0.1)] border border-[hsl(240_6%_7%/0.2)]">
+                  <span className="w-2 h-2 rounded-full bg-[hsl(240_6%_7%)]" />
+                  <span className="text-sm font-semibold tracking-widest uppercase text-[hsl(240_6%_7%)]">{t.hero.startDate}</span>
                 </div>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15]">
                 {t.hero.title}<span className="neon-underline">{t.hero.titleHighlight}</span>{t.hero.titleSub}
-                <span className="text-muted-foreground">От идеи до монтажа.</span>
+                <span className="text-[hsl(240_6%_7%/0.6)]">От идеи до монтажа.</span>
               </h1>
 
-              <p className="text-lg text-foreground max-w-xl leading-relaxed">
+              <p className="text-lg text-[hsl(240_6%_7%/0.8)] max-w-xl leading-relaxed">
                 {t.hero.description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <button className="btn-primary gap-2" onClick={() => setIsEnrollOpen(true)}>
+                <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[hsl(240_6%_7%)] text-[hsl(48_100%_50%)] font-semibold text-base hover:bg-[hsl(240_6%_7%/0.85)] transition-colors" onClick={() => setIsEnrollOpen(true)}>
                   {t.hero.enrollBtn}
                   <ArrowRight size={18} />
                 </button>
                 <button 
-                  className="btn-secondary gap-2"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-[hsl(240_6%_7%/0.3)] text-[hsl(240_6%_7%)] font-semibold text-base hover:bg-[hsl(240_6%_7%/0.08)] transition-colors"
                   onClick={() => document.getElementById('program')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <Play size={18} />
