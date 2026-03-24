@@ -159,7 +159,7 @@ const ru: TranslationKeys = {
   },
   hero: {
     stream: "Поток 2",
-    startDate: "Начало 15 апреля",
+    startDate: "Начало 20 апреля",
     title: "Крутые ",
     titleHighlight: "ИИ",
     titleSub: " креативы за 1 месяц. ",
@@ -279,7 +279,7 @@ const ru: TranslationKeys = {
     copyright: "© 2025 ИИ-Креатив. Все права защищены.",
   },
   stickyCta: {
-    startDate: "Старт курса 15 апреля",
+    startDate: "Старт курса 20 апреля",
     limited: "Количество мест ограничено",
     enrollBtn: "Записаться на курс",
   },
@@ -353,7 +353,7 @@ const kz: TranslationKeys = {
   },
   hero: {
     stream: "2-ағын",
-    startDate: "Басталуы 15 сәуір",
+    startDate: "Басталуы 20 сәуір",
     title: "Керемет ",
     titleHighlight: "ЖИ",
     titleSub: " креативтер 1 айда. ",
@@ -473,7 +473,7 @@ const kz: TranslationKeys = {
     copyright: "© 2025 ЖИ-Креатив. Барлық құқықтар қорғалған.",
   },
   stickyCta: {
-    startDate: "Курс 15 сәуірде басталады",
+    startDate: "Курс 20 сәуірде басталады",
     limited: "Орын саны шектеулі",
     enrollBtn: "Курсқа жазылу",
   },
@@ -547,7 +547,7 @@ const en: TranslationKeys = {
   },
   hero: {
     stream: "Batch 2",
-    startDate: "Starts April 15",
+    startDate: "Starts April 20",
     title: "Amazing ",
     titleHighlight: "AI",
     titleSub: " creatives in 1 month. ",
@@ -667,7 +667,7 @@ const en: TranslationKeys = {
     copyright: "© 2025 AI-Creative. All rights reserved.",
   },
   stickyCta: {
-    startDate: "Course starts April 15",
+    startDate: "Course starts April 20",
     limited: "Limited spots available",
     enrollBtn: "Enroll now",
   },
