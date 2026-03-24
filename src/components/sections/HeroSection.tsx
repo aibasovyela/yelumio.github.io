@@ -59,12 +59,12 @@ export const HeroSection = () => {
 
             <div className="relative flex items-center justify-center">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-80 h-80 md:w-96 md:h-96 bg-primary/10 rounded-full blur-[100px]" />
+                <div className="w-80 h-80 md:w-96 md:h-96 bg-[hsl(240_6%_7%/0.05)] rounded-full blur-[100px]" />
               </div>
               
               <div className="relative">
                 <div className="cursor-pointer">
-                  <div className="relative p-3 rounded-2xl border border-[hsl(0_0%_100%/0.1)] bg-[hsl(240_4%_16%/0.5)] backdrop-blur-xl">
+                  <div className="relative p-3 rounded-2xl border border-[hsl(240_6%_7%/0.1)] bg-[hsl(240_6%_7%/0.08)] backdrop-blur-xl">
                     <div className="relative overflow-hidden rounded-xl">
                       <img
                         src={authorPhoto} 
@@ -74,43 +74,43 @@ export const HeroSection = () => {
                         fetchPriority="high"
                         decoding="async"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(48_100%_50%/0.3)] via-transparent to-transparent" />
                     </div>
                   </div>
                 </div>
 
-                <div className="absolute -top-4 -left-4 p-3 rounded-xl bg-[hsl(240_4%_16%/0.6)] backdrop-blur-xl border border-[hsl(0_0%_100%/0.1)] shadow-lg">
+                <div className="absolute -top-4 -left-4 p-3 rounded-xl bg-[hsl(0_0%_100%/0.7)] backdrop-blur-xl border border-[hsl(240_6%_7%/0.08)] shadow-lg">
                   <div className="flex items-center gap-2">
-                    <Lightbulb size={18} className="text-primary" strokeWidth={1.5} />
-                    <span className="text-xs font-semibold tracking-wide">{t.hero.idea}</span>
+                    <Lightbulb size={18} className="text-[hsl(240_6%_7%)]" strokeWidth={1.5} />
+                    <span className="text-xs font-semibold tracking-wide text-[hsl(240_6%_7%)]">{t.hero.idea}</span>
                   </div>
                 </div>
 
-                <div className="absolute top-1/4 -right-6 p-3 rounded-xl bg-[hsl(240_4%_16%/0.6)] backdrop-blur-xl border border-[hsl(0_0%_100%/0.1)] shadow-lg">
+                <div className="absolute top-1/4 -right-6 p-3 rounded-xl bg-[hsl(0_0%_100%/0.7)] backdrop-blur-xl border border-[hsl(240_6%_7%/0.08)] shadow-lg">
                   <div className="flex items-center gap-2">
-                    <Camera size={18} className="text-primary" strokeWidth={1.5} />
-                    <span className="text-xs font-semibold tracking-wide">{t.hero.photo}</span>
+                    <Camera size={18} className="text-[hsl(240_6%_7%)]" strokeWidth={1.5} />
+                    <span className="text-xs font-semibold tracking-wide text-[hsl(240_6%_7%)]">{t.hero.photo}</span>
                   </div>
                 </div>
 
-                <div className="absolute bottom-1/3 -left-8 p-3 rounded-xl bg-[hsl(240_4%_16%/0.6)] backdrop-blur-xl border border-[hsl(0_0%_100%/0.1)] shadow-lg">
+                <div className="absolute bottom-1/3 -left-8 p-3 rounded-xl bg-[hsl(0_0%_100%/0.7)] backdrop-blur-xl border border-[hsl(240_6%_7%/0.08)] shadow-lg">
                   <div className="flex items-center gap-2">
-                    <Video size={18} className="text-primary" strokeWidth={1.5} />
-                    <span className="text-xs font-semibold tracking-wide">{t.hero.video}</span>
+                    <Video size={18} className="text-[hsl(240_6%_7%)]" strokeWidth={1.5} />
+                    <span className="text-xs font-semibold tracking-wide text-[hsl(240_6%_7%)]">{t.hero.video}</span>
                   </div>
                 </div>
 
-                <div className="absolute -bottom-4 right-1/4 p-3 rounded-xl bg-[hsl(240_4%_16%/0.6)] backdrop-blur-xl border border-[hsl(0_0%_100%/0.1)] shadow-lg">
+                <div className="absolute -bottom-4 right-1/4 p-3 rounded-xl bg-[hsl(0_0%_100%/0.7)] backdrop-blur-xl border border-[hsl(240_6%_7%/0.08)] shadow-lg">
                   <div className="flex items-center gap-2">
-                    <Music size={18} className="text-primary" strokeWidth={1.5} />
-                    <span className="text-xs font-semibold tracking-wide">{t.hero.sound}</span>
+                    <Music size={18} className="text-[hsl(240_6%_7%)]" strokeWidth={1.5} />
+                    <span className="text-xs font-semibold tracking-wide text-[hsl(240_6%_7%)]">{t.hero.sound}</span>
                   </div>
                 </div>
 
-                <div className="absolute bottom-1/4 -right-4 p-3 rounded-xl bg-[hsl(240_4%_16%/0.6)] backdrop-blur-xl border border-[hsl(0_0%_100%/0.1)] shadow-lg">
+                <div className="absolute bottom-1/4 -right-4 p-3 rounded-xl bg-[hsl(0_0%_100%/0.7)] backdrop-blur-xl border border-[hsl(240_6%_7%/0.08)] shadow-lg">
                   <div className="flex items-center gap-2">
-                    <Mic size={18} className="text-primary" strokeWidth={1.5} />
-                    <span className="text-xs font-semibold tracking-wide">{t.hero.speech}</span>
+                    <Mic size={18} className="text-[hsl(240_6%_7%)]" strokeWidth={1.5} />
+                    <span className="text-xs font-semibold tracking-wide text-[hsl(240_6%_7%)]">{t.hero.speech}</span>
                   </div>
                 </div>
               </div>
