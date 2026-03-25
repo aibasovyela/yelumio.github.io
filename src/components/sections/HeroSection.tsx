@@ -12,7 +12,7 @@ export const HeroSection = () => {
 
   return (
     <>
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[hsl(48_80%_35%)] text-[hsl(240_6%_7%)]">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[hsl(40_50%_88%)] text-[hsl(240_6%_7%)]">
         <div className="container relative z-10 pt-28 pb-20">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
