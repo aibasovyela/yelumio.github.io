@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="absolute inset-0 bg-[hsl(240_5%_10%/0.7)] backdrop-blur-2xl border-b border-[hsl(0_0%_100%/0.08)]" />
+        <div className="absolute inset-0 bg-[hsl(0_0%_100%/0.8)] backdrop-blur-2xl border-b border-[hsl(240_6%_10%/0.08)]" />
         
         <div className="container relative">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -24,15 +24,15 @@ export const Header = () => {
                   alt="Логотип" 
                   className="w-9 h-9 rounded-full object-cover"
                 />
-                <span className="font-semibold text-sm tracking-wide hidden sm:block">{t.header.courseName}</span>
+                <span className="font-semibold text-sm tracking-wide hidden sm:block text-foreground">{t.header.courseName}</span>
               </a>
               <LanguageSwitcher />
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
-              <a href="#program" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t.header.program}</a>
-              <a href="#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t.header.pricing}</a>
-              <a href="#faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t.header.faq}</a>
+              <a href="#program" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.header.program}</a>
+              <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.header.pricing}</a>
+              <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.header.faq}</a>
             </nav>
 
             <div className="hidden md:block">
@@ -50,7 +50,7 @@ export const Header = () => {
           </div>
 
           {isMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-[hsl(240_5%_10%/0.85)] backdrop-blur-2xl border-b border-[hsl(0_0%_100%/0.08)] p-6 space-y-4">
+            <div className="md:hidden absolute top-full left-0 right-0 bg-[hsl(0_0%_100%/0.95)] backdrop-blur-2xl border-b border-[hsl(240_6%_10%/0.08)] p-6 space-y-4">
               <a href="#program" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.program}</a>
               <a href="#pricing" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.pricing}</a>
               <a href="#faq" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.faq}</a>

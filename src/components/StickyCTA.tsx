@@ -21,10 +21,10 @@ export const StickyCTA = () => {
           visible ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <div className="bg-[hsl(240_5%_10%/0.7)] backdrop-blur-2xl border-t border-[hsl(0_0%_100%/0.08)] py-3 px-4">
+        <div className="bg-[hsl(0_0%_100%/0.85)] backdrop-blur-2xl border-t border-[hsl(240_6%_10%/0.08)] py-3 px-4">
           <div className="container flex items-center justify-between gap-4">
             <div className="hidden sm:block">
-              <p className="text-sm font-semibold">{t.stickyCta.startDate}</p>
+              <p className="text-sm font-semibold text-foreground">{t.stickyCta.startDate}</p>
               <p className="text-xs text-muted-foreground">{t.stickyCta.limited}</p>
             </div>
             <button
