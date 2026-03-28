@@ -10,7 +10,7 @@ export const CourseProgramSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="section-padding bg-[hsl(45_80%_55%)]">
+    <section className="section-padding bg-[hsl(40_50%_88%)]">
       <div className="container">
         <ScrollReveal>
           <div className="text-center mb-16 space-y-4">
