@@ -5,7 +5,7 @@ export const InstagramSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="section-padding bg-[hsl(40_50%_88%)]">
+    <section className="section-padding bg-white">
       <div className="container">
         <div className="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
           {/* Instagram Card */}
