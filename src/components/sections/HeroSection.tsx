@@ -24,12 +24,11 @@ export const HeroSection = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] max-w-3xl">
-              {t.hero.title}<span className="neon-underline">{t.hero.titleHighlight}</span>{t.hero.titleSub}
-              <br />
+              {t.hero.title}<span className="neon-underline">{t.hero.titleHighlight}</span>{t.hero.titleSub}{" "}
               <span className="text-[hsl(240_6%_7%/0.6)]">От идеи до первой продажи.</span>
             </h1>
 
-            <p className="text-lg text-white max-w-2xl leading-relaxed">
+            <p className="text-lg text-[hsl(240_6%_7%)] max-w-2xl leading-relaxed">
               {t.hero.description}
             </p>
 
