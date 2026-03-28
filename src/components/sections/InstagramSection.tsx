@@ -5,7 +5,7 @@ export const InstagramSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="section-padding bg-[hsl(40_50%_88%)]">
+    <section className="section-padding bg-white">
       <div className="container">
         <div className="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
           {/* Instagram Card */}
@@ -46,13 +46,13 @@ export const InstagramSection = () => {
             </p>
             <div className="flex items-center gap-8">
               <div>
-                <p className="text-2xl font-bold text-[hsl(240_6%_7%)]">500+</p>
+                <p className="text-2xl font-bold text-[hsl(240_6%_7%)]">50+</p>
                 <p className="text-sm text-[hsl(240_6%_7%/0.5)]">учеников</p>
               </div>
               <div className="w-px h-10 bg-[hsl(240_6%_7%/0.15)]" />
               <div>
-                <p className="text-2xl font-bold text-[hsl(240_6%_7%)]">7</p>
-                <p className="text-sm text-[hsl(240_6%_7%/0.5)]">модулей</p>
+                <p className="text-2xl font-bold text-[hsl(240_6%_7%)]">25+</p>
+                <p className="text-sm text-[hsl(240_6%_7%/0.5)]">реальных заказов</p>
               </div>
             </div>
           </div>
