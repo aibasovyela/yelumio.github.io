@@ -40,7 +40,7 @@ export const HeroSection = () => {
                     src={authorPhoto}
                     alt="Автор курса"
                     className="w-full h-auto object-cover rounded-xl"
-                    style={{ aspectRatio: "16/9", objectPosition: "top" }}
+                    style={{ aspectRatio: "21/9", objectPosition: "top" }}
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
