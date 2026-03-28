@@ -7,6 +7,7 @@ const CourseProgramSection = lazy(() => import("@/components/sections/CourseProg
 const ShowcaseSection = lazy(() => import("@/components/sections/ShowcaseSection").then(m => ({ default: m.ShowcaseSection })));
 const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(m => ({ default: m.PricingSection })));
 const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
+const InstagramSection = lazy(() => import("@/components/sections/InstagramSection").then(m => ({ default: m.InstagramSection })));
 const Footer = lazy(() => import("@/components/sections/Footer").then(m => ({ default: m.Footer })));
 
 const SectionFallback = () => (
@@ -46,6 +47,11 @@ const Index = () => {
             {/* FAQ: beige */}
             <div id="faq" className="section-beige">
               <FAQSection />
+            </div>
+
+            {/* Instagram: white */}
+            <div className="section-white">
+              <InstagramSection />
             </div>
           </Suspense>
         </main>
