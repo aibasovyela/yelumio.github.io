@@ -25,6 +25,8 @@ export interface TranslationKeys {
     video: string;
     sound: string;
     speech: string;
+    studentWorksBtn: string;
+    questionsBtn: string;
   };
   // Showcase
   showcase: {
@@ -171,6 +173,8 @@ const ru: TranslationKeys = {
     video: "ВИДЕО",
     sound: "ЗВУК",
     speech: "РЕЧЬ",
+    studentWorksBtn: "Работы учеников",
+    questionsBtn: "Остались вопросы",
   },
   showcase: {
     title: "Такие кадры вы сможете создавать",
@@ -365,6 +369,8 @@ const kz: TranslationKeys = {
     video: "ВИДЕО",
     sound: "ДЫБЫС",
     speech: "СӨЗ",
+    studentWorksBtn: "Оқушылардың жұмыстары",
+    questionsBtn: "Сұрақтарыңыз бар ма",
   },
   showcase: {
     title: "Курс аяқталғаннан кейін осындай кадрлар жасай аласыз",
@@ -559,6 +565,8 @@ const en: TranslationKeys = {
     video: "VIDEO",
     sound: "SOUND",
     speech: "SPEECH",
+    studentWorksBtn: "Student works",
+    questionsBtn: "Have questions",
   },
   showcase: {
     title: "You'll be able to create shots like these",
