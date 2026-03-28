@@ -5,12 +5,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const videos = [
-  "/carousel/showcase-01.mov",
-  "/carousel/showcase-02.mov",
-  "/carousel/showcase-03.mov",
-  "/carousel/showcase-04.mov",
-  "/carousel/showcase-05.mov",
-  "/carousel/showcase-06.mov",
+  { src: "/carousel/showcase-01.mov", name: "Алина", time: "2 часа" },
+  { src: "/carousel/showcase-02.mov", name: "Дамир", time: "1.5 часа" },
+  { src: "/carousel/showcase-03.mov", name: "Камила", time: "3 часа" },
+  { src: "/carousel/showcase-04.mov", name: "Артём", time: "1 час" },
+  { src: "/carousel/showcase-05.mov", name: "Айгерим", time: "2.5 часа" },
+  { src: "/carousel/showcase-06.mov", name: "Макс", time: "2 часа" },
 ];
 
 export const ShowcaseSection = () => {
@@ -50,7 +50,7 @@ export const ShowcaseSection = () => {
   }, [selectedIndex]);
 
   return (
-    <section className="section-padding">
+    <section id="showcase" className="section-padding">
       <div className="container">
         <ScrollReveal>
           <div className="text-center mb-12 space-y-4">
@@ -65,7 +65,7 @@ export const ShowcaseSection = () => {
           <div className="relative">
             <div ref={emblaRef} className="overflow-hidden">
               <div className="flex">
-                {videos.map((src, index) => {
+                {videos.map((video, index) => {
                   const isActive = index === selectedIndex;
                   return (
                     <div
@@ -83,13 +83,18 @@ export const ShowcaseSection = () => {
                         <div className="aspect-[9/16] w-full relative overflow-hidden bg-secondary">
                           <video
                             ref={(el) => { videoRefs.current[index] = el; }}
-                            src={src}
+                            src={video.src}
                             className="w-full h-full object-cover"
                             loop
                             muted
                             playsInline
                             preload="metadata"
                           />
+                          {/* Name & time overlay */}
+                          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-[hsl(0_0%_0%/0.7)] to-transparent">
+                            <p className="text-white font-semibold text-sm">{video.name}</p>
+                            <p className="text-white/70 text-xs">Сделано за {video.time}</p>
+                          </div>
                         </div>
                       </div>
                     </div>

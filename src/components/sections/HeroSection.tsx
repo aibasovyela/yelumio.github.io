@@ -69,7 +69,7 @@ export const HeroSection = () => {
               </button>
               <button
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-[hsl(240_6%_7%/0.3)] text-[hsl(240_6%_7%)] font-semibold text-base hover:bg-[hsl(240_6%_7%/0.08)] transition-colors"
-                onClick={() => document.querySelector('.section-white + .section-beige + .section-white + .section-beige')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <GraduationCap size={18} />
                 {t.hero.studentWorksBtn}
