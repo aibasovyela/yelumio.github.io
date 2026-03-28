@@ -97,7 +97,7 @@ export const PricingSection = () => {
             {/* Pro */}
             <ScrollReveal delay={200}>
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 rounded-2xl blur-lg opacity-50" />
+                <div className="absolute -inset-1 rounded-2xl blur-lg opacity-50" style={{ background: "linear-gradient(160deg, hsl(45 80% 50% / 0.3), hsl(35 90% 45% / 0.2), hsl(25 85% 40% / 0.1))" }} />
                 <div className="absolute -top-4 right-6 z-10">
                   <span className="rounded-full bg-primary text-primary-foreground font-semibold text-sm px-3 py-1">
                     {t.pricing.recommend}
@@ -139,7 +139,7 @@ export const PricingSection = () => {
             {/* Elite */}
             <ScrollReveal delay={300}>
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl blur-lg opacity-40 transition-opacity duration-300 group-hover:opacity-70" />
+                <div className="absolute -inset-1 rounded-2xl blur-lg opacity-40 transition-opacity duration-300 group-hover:opacity-70" style={{ background: "linear-gradient(160deg, hsl(45 80% 50% / 0.2), hsl(35 90% 45% / 0.15), hsl(25 85% 40% / 0.05))" }} />
                 <div className="absolute -top-4 right-6 z-10">
                   <span className="rounded-full bg-primary text-primary-foreground font-semibold text-sm px-3 py-1">
                     {t.pricing.premium}
