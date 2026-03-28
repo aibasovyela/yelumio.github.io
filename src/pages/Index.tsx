@@ -48,6 +48,11 @@ const Index = () => {
             <div id="faq" className="section-beige">
               <FAQSection />
             </div>
+
+            {/* Instagram: white */}
+            <div className="section-white">
+              <InstagramSection />
+            </div>
           </Suspense>
         </main>
 
