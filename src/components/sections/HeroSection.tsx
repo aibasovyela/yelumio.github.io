@@ -17,9 +17,9 @@ export const HeroSection = () => {
             
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-[hsl(240_6%_7%)]">{t.hero.stream}</h2>
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[hsl(48_100%_50%)] border border-[hsl(48_100%_40%)]">
-                <span className="w-2 h-2 rounded-full bg-[hsl(240_6%_7%)]" />
-                <span className="text-sm font-semibold tracking-widest uppercase text-[hsl(240_6%_7%)]">{t.hero.startDate}</span>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white border-0" style={{ background: "linear-gradient(160deg, hsl(45 80% 50%), hsl(35 90% 45%), hsl(25 85% 40%))" }}>
+                <span className="w-2 h-2 rounded-full bg-white" />
+                <span className="text-sm font-semibold tracking-widest uppercase text-white">{t.hero.startDate}</span>
               </div>
             </div>
 
@@ -53,7 +53,8 @@ export const HeroSection = () => {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <button
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[hsl(240_6%_7%)] text-[hsl(48_100%_50%)] font-semibold text-base hover:bg-[hsl(240_6%_7%/0.85)] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base text-white transition-all duration-300 hover:-translate-y-0.5"
+                style={{ background: "linear-gradient(160deg, hsl(45 80% 50%), hsl(35 90% 45%), hsl(25 85% 40%))", boxShadow: "0 4px 20px hsl(35 80% 45% / 0.3)" }}
                 onClick={() => setIsEnrollOpen(true)}
               >
                 {t.hero.enrollBtn}
