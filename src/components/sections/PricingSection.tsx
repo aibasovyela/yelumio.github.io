@@ -115,12 +115,13 @@ export const PricingSection = () => {
                   <ul className="space-y-3">
                     {t.pricing.pro.features.map((text, i) => {
                       const Icon = proIcons[i];
+                      const boldPro = [3, 5]; // "Разбор каждого креатива", "Ответы на вопросы вживую"
                       return (
                         <li key={i} className="flex items-center gap-3">
                           <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                             <Icon size={12} className="text-primary" />
                           </div>
-                          <span className="text-sm">{text}</span>
+                          <span className={`text-sm ${boldPro.includes(i) ? 'font-bold' : ''}`}>{text}</span>
                         </li>
                       );
                     })}
@@ -162,13 +163,14 @@ export const PricingSection = () => {
                     {t.pricing.elite.features.map((text, i) => {
                       const Icon = eliteIcons[i];
                       const sub = t.pricing.elite.subs[i];
+                      const boldElite = [1, 4]; // "1 реальный платный заказ...", "Приоритетная обратная связь"
                       return (
                         <li key={i} className="flex items-start gap-3">
                           <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <Icon size={12} className="text-primary" />
                           </div>
                           <div>
-                            <span className="text-sm">{text}</span>
+                            <span className={`text-sm ${boldElite.includes(i) ? 'font-bold' : ''}`}>{text}</span>
                             {sub && <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>}
                           </div>
                         </li>
