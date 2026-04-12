@@ -41,10 +41,6 @@ export const PricingSection = () => {
               <GlassCard className="p-6 md:p-8 space-y-6" hover={false}>
                 <div>
                   <h3 className="text-2xl font-bold">Light</h3>
-                  <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-3xl md:text-4xl font-bold">50 000</span>
-                    <span className="text-lg text-muted-foreground">₸</span>
-                  </div>
                 </div>
                 <ul className="space-y-3">
                   {t.pricing.light.features.map((text, i) => {
@@ -70,10 +66,6 @@ export const PricingSection = () => {
               <GlassCard className="p-6 md:p-8 space-y-6" hover={false}>
                 <div>
                   <h3 className="text-2xl font-bold">Basic</h3>
-                  <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-3xl md:text-4xl font-bold">70 000</span>
-                    <span className="text-lg text-muted-foreground">₸</span>
-                  </div>
                 </div>
                 <ul className="space-y-3">
                   {t.pricing.basic.features.map((text, i) => {
@@ -107,10 +99,6 @@ export const PricingSection = () => {
                   <div>
                     <h3 className="text-2xl font-bold">PRO / Mentor</h3>
                     <p className="text-sm text-primary font-medium mt-1">{t.pricing.maxResult}</p>
-                    <div className="mt-4 flex items-baseline gap-1">
-                      <span className="text-3xl md:text-4xl font-bold">120 000</span>
-                      <span className="text-lg text-muted-foreground">₸</span>
-                    </div>
                   </div>
                   <ul className="space-y-3">
                     {t.pricing.pro.features.map((text, i) => {
@@ -149,10 +137,6 @@ export const PricingSection = () => {
                   <div>
                     <h3 className="text-2xl font-bold">ELITE / Studio</h3>
                     <p className="text-sm text-primary font-medium mt-1">{t.pricing.studioWork}</p>
-                    <div className="mt-4 flex items-baseline gap-1">
-                      <span className="text-3xl md:text-4xl font-bold">200 000</span>
-                      <span className="text-lg text-muted-foreground">₸</span>
-                    </div>
                   </div>
 
                   <div className="text-sm text-muted-foreground italic border-l-2 border-primary/40 pl-3">
