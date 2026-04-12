@@ -33,6 +33,9 @@ export const PricingSection = () => {
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 {t.pricing.subtitle}
               </p>
+              <div className="flex justify-center pt-2">
+                <img src={kaspiBadge} alt="Kaspi рассрочка 0-0-12" className="w-20 h-20 object-contain" />
+              </div>
             </div>
           </ScrollReveal>
 
