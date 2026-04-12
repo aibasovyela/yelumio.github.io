@@ -7,7 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface EnrollModalProps {
@@ -15,17 +15,10 @@ interface EnrollModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-const tariffs = [
-  { value: "light", label: "Light" },
-  { value: "basic", label: "Basic" },
-  { value: "pro", label: "PRO / Mentor" },
-  { value: "elite", label: "ELITE / Studio" },
-];
-
 export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7");
-  const [selectedTariff, setSelectedTariff] = useState("");
+  const [purpose, setPurpose] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const { t } = useLanguage();
@@ -33,7 +26,7 @@ export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name.trim() || !phone.trim() || phone.trim() === "+7" || !selectedTariff) {
+    if (!name.trim() || !phone.trim() || phone.trim() === "+7") {
       toast({
         title: t.enrollModal.fillAll,
         description: t.enrollModal.fillAllDesc,
@@ -45,9 +38,8 @@ export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
     setIsSubmitting(true);
 
     try {
-      const plan = tariffs.find((t) => t.value === selectedTariff)?.label || selectedTariff;
       const { error } = await supabase.functions.invoke("send-to-telegram", {
-        body: { type: "enroll", name, contact: phone, plan },
+        body: { type: "enroll", name, contact: phone, purpose },
       });
 
       if (error) throw error;
@@ -55,7 +47,7 @@ export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
       toast({ title: t.enrollModal.success, description: t.enrollModal.successDesc });
       setName("");
       setPhone("+7");
-      setSelectedTariff("");
+      setPurpose("");
       onOpenChange(false);
     } catch (error) {
       console.error("Error sending to Telegram:", error);
@@ -84,16 +76,9 @@ export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
             <Input id="enroll-phone" type="tel" placeholder={t.enrollModal.phonePlaceholder} value={phone} onChange={(e) => setPhone(e.target.value)} required />
           </div>
 
-          <div className="space-y-3">
-            <Label>{t.enrollModal.selectTariff}</Label>
-            <RadioGroup value={selectedTariff} onValueChange={setSelectedTariff} className="space-y-2">
-              {tariffs.map((tariff) => (
-                <div key={tariff.value} className="flex items-center space-x-3 rounded-xl border border-border px-4 py-3 cursor-pointer hover:bg-secondary/50 transition-colors">
-                  <RadioGroupItem value={tariff.value} id={tariff.value} />
-                  <Label htmlFor={tariff.value} className="cursor-pointer flex-1 text-sm font-normal">{tariff.label}</Label>
-                </div>
-              ))}
-            </RadioGroup>
+          <div className="space-y-2">
+            <Label htmlFor="enroll-purpose">Где вы хотите применять ИИ?</Label>
+            <Textarea id="enroll-purpose" placeholder="Например: видеопродакшн, маркетинг, дизайн..." value={purpose} onChange={(e) => setPurpose(e.target.value)} className="resize-none" rows={3} />
           </div>
 
           <button type="submit" className="btn-primary w-full gap-2" disabled={isSubmitting}>

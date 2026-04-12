@@ -3,10 +3,10 @@ import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription,
 } from "@/components/ui/dialog";
 import { ArrowRight } from "lucide-react";
-import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { Textarea } from "@/components/ui/textarea";
 
 interface PricingEnrollModalProps {
   open: boolean;
@@ -18,30 +18,20 @@ interface PricingEnrollModalProps {
 export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: PricingEnrollModalProps) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7");
-  const [email, setEmail] = useState("");
-  const [errors, setErrors] = useState<{ name?: string; phone?: string; email?: string }>({});
+  const [purpose, setPurpose] = useState("");
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const { t } = useLanguage();
 
-  const formSchema = z.object({
-    name: z.string().min(2, t.pricingModal.nameError),
-    phone: z.string().min(10, t.pricingModal.phoneError),
-    email: z.string().email(t.pricingModal.emailError),
-  });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const result = formSchema.safeParse({ name, phone, email });
+    const fieldErrors: { name?: string; phone?: string } = {};
+    if (name.trim().length < 2) fieldErrors.name = t.pricingModal.nameError;
+    if (phone.trim().length < 10) fieldErrors.phone = t.pricingModal.phoneError;
     
-    if (!result.success) {
-      const fieldErrors: { name?: string; phone?: string; email?: string } = {};
-      result.error.errors.forEach((err) => {
-        if (err.path[0] === "name") fieldErrors.name = err.message;
-        if (err.path[0] === "phone") fieldErrors.phone = err.message;
-        if (err.path[0] === "email") fieldErrors.email = err.message;
-      });
+    if (Object.keys(fieldErrors).length > 0) {
       setErrors(fieldErrors);
       return;
     }
@@ -51,7 +41,7 @@ export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: 
 
     try {
       const { error } = await supabase.functions.invoke("send-to-telegram", {
-        body: { type: "pricing", plan: planName, name, email, phone },
+        body: { type: "pricing", plan: planName, name, phone, purpose },
       });
 
       if (error) throw error;
@@ -60,7 +50,7 @@ export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: 
       onOpenChange(false);
       setName("");
       setPhone("+7");
-      setEmail("");
+      setPurpose("");
     } catch (error) {
       console.error("Error sending to Telegram:", error);
       toast({ title: t.pricingModal.error, description: t.pricingModal.errorDesc, variant: "destructive" });
@@ -105,9 +95,8 @@ export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: 
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="pricing-email" className="text-sm font-medium">{t.pricingModal.emailLabel}</label>
-              <input id="pricing-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t.pricingModal.emailPlaceholder} className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-primary focus:outline-none transition-colors" />
-              {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+              <label htmlFor="pricing-purpose" className="text-sm font-medium">Где вы хотите применять ИИ?</label>
+              <Textarea id="pricing-purpose" value={purpose} onChange={(e) => setPurpose(e.target.value)} placeholder="Например: видеопродакшн, маркетинг, дизайн..." className="rounded-xl bg-card border border-border focus:border-primary focus:outline-none transition-colors resize-none" rows={3} />
             </div>
 
             <button type="submit" className="btn-primary w-full gap-2" disabled={isSubmitting}>
