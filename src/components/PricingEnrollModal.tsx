@@ -85,15 +85,9 @@ export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: 
 
         <div className="space-y-6 py-4">
           <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">{t.pricingModal.selectedPlan}</p>
-                <p className={`text-xl font-bold ${getPlanColor()}`}>{planName}</p>
-              </div>
-              <div className="text-right">
-                <p className="text-sm text-muted-foreground">{t.pricingModal.cost}</p>
-                <p className="text-xl font-bold">{planPrice} ₸</p>
-              </div>
+            <div>
+              <p className="text-sm text-muted-foreground">{t.pricingModal.selectedPlan}</p>
+              <p className={`text-xl font-bold ${getPlanColor()}`}>{planName}</p>
             </div>
           </div>
 
