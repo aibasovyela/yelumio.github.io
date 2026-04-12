@@ -4,6 +4,7 @@ import { Check, Star, Users, Video, FileText, MessageCircle, Zap, Briefcase, Spa
 import { useState } from "react";
 import { PricingEnrollModal } from "@/components/PricingEnrollModal";
 import { useLanguage } from "@/i18n/LanguageContext";
+import kaspiBadge from "@/assets/kaspi_badge.png";
 
 const lightIcons = [Video, Zap, FileText];
 const basicIcons = [Video, Zap, FileText, Check, Check, MessageCircle];
