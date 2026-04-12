@@ -29,10 +29,7 @@ const Index = () => {
           <HeroSection />
           
           <Suspense fallback={<SectionFallback />}>
-            {/* Showcase: white */}
-            <div className="section-white">
-              <ShowcaseSection />
-            </div>
+            {/* Showcase: archived */}
 
             {/* Program: beige */}
             <div id="program" className="section-beige">
