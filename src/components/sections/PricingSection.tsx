@@ -49,6 +49,10 @@ export const PricingSection = () => {
                 <div>
                   <h3 className="text-2xl font-bold">Basic</h3>
                 </div>
+                <div>
+                  <p className="text-3xl font-bold text-foreground">{t.pricing.basic.priceKzt}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{t.pricing.basic.priceRub}</p>
+                </div>
                 <ul className="space-y-3">
                   {t.pricing.basic.features.map((text, i) => {
                     const Icon = basicIcons[i];
@@ -62,7 +66,7 @@ export const PricingSection = () => {
                     );
                   })}
                 </ul>
-                <button className="btn-secondary w-full" onClick={() => openModal("Basic", "70 000")}>
+                <button className="btn-secondary w-full" onClick={() => openModal("Basic", t.pricing.basic.priceKzt)}>
                   {t.pricing.choosePlan} Basic
                 </button>
               </GlassCard>
@@ -82,10 +86,14 @@ export const PricingSection = () => {
                     <h3 className="text-2xl font-bold">PRO / Mentor</h3>
                     <p className="text-sm text-primary font-medium mt-1">{t.pricing.maxResult}</p>
                   </div>
+                  <div>
+                    <p className="text-3xl font-bold text-foreground">{t.pricing.pro.priceKzt}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{t.pricing.pro.priceRub}</p>
+                  </div>
                   <ul className="space-y-3">
                     {t.pricing.pro.features.map((text, i) => {
                       const Icon = proIcons[i];
-                      const boldPro = [3, 5]; // "Разбор каждого креатива", "Ответы на вопросы вживую"
+                      const boldPro = [2]; // "Разбор каждого креатива"
                       return (
                         <li key={i} className="flex items-center gap-3">
                           <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
@@ -96,7 +104,7 @@ export const PricingSection = () => {
                       );
                     })}
                   </ul>
-                  <button className="btn-primary w-full" onClick={() => openModal("PRO / Mentor", "120 000")}>
+                  <button className="btn-primary w-full" onClick={() => openModal("PRO / Mentor", t.pricing.pro.priceKzt)}>
                     {t.pricing.choosePlan} PRO
                   </button>
                   <p className="text-xs text-center text-muted-foreground">
@@ -121,6 +129,11 @@ export const PricingSection = () => {
                     <p className="text-sm text-primary font-medium mt-1">{t.pricing.studioWork}</p>
                   </div>
 
+                  <div>
+                    <p className="text-3xl font-bold text-foreground">{t.pricing.elite.priceKzt}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{t.pricing.elite.priceRub}</p>
+                  </div>
+
                   <div className="text-sm text-muted-foreground italic border-l-2 border-primary/40 pl-3">
                     {t.pricing.studioDesc}
                   </div>
@@ -129,7 +142,7 @@ export const PricingSection = () => {
                     {t.pricing.elite.features.map((text, i) => {
                       const Icon = eliteIcons[i];
                       const sub = t.pricing.elite.subs[i];
-                      const boldElite = [1, 4]; // "1 реальный платный заказ...", "Приоритетная обратная связь"
+                      const boldElite = [1, 4, 6]; // платный заказ, приоритетная связь, онлайн-созвоны
                       return (
                         <li key={i} className="flex items-start gap-3">
                           <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -146,7 +159,7 @@ export const PricingSection = () => {
 
                   <button 
                     className="btn-primary w-full"
-                    onClick={() => openModal("ELITE / Studio", "200 000")}
+                    onClick={() => openModal("ELITE / Studio", t.pricing.elite.priceKzt)}
                   >
                     {t.pricing.choosePlan} ELITE
                   </button>
