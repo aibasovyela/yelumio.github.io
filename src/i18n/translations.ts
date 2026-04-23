@@ -61,12 +61,14 @@ export interface TranslationKeys {
     studioDesc: string;
     studioFooter: string;
     proFooter: string;
-    light: { features: string[] };
-    basic: { features: string[] };
-    pro: { features: string[] };
+    priceLabel: string;
+    basic: { features: string[]; priceKzt: string; priceRub: string };
+    pro: { features: string[]; priceKzt: string; priceRub: string };
     elite: {
       features: string[];
       subs: string[];
+      priceKzt: string;
+      priceRub: string;
     };
   };
   // FAQ
@@ -250,18 +252,22 @@ const ru: TranslationKeys = {
     studioDesc: "Это уже не просто обучение, а совместное продакшн-мышление.",
     studioFooter: "Тем, кто хочет результат уровня студии, а не просто обучение.",
     proFooter: "Подходит тем, кто хочет максимум результата и личный разбор",
-    light: {
-      features: ["Доступ ко всем 8 модулям", "5–6 часов видео", "Презентации и инструкции"],
-    },
+    priceLabel: "Стоимость",
     basic: {
       features: ["Доступ ко всем 8 модулям", "5–6 часов видео", "Презентации и инструкции", "Домашние задания", "Проверка ДЗ", "Обратная связь по работам"],
+      priceKzt: "80 000 ₸",
+      priceRub: "≈ 14 500 ₽",
     },
     pro: {
-      features: ["Всё из тарифа Basic", "Личное участие автора курса", "2 живых созвона в неделю", "Разбор каждого креатива", "Детальная работа с кадрами, светом, движением", "Ответы на вопросы вживую", "Ускоренный рост и глубина"],
+      features: ["Всё из тарифа Basic", "Личное участие автора курса", "Разбор каждого креатива", "Детальная работа с кадрами, светом, движением", "Ускоренный рост и глубина"],
+      priceKzt: "120 000 ₸",
+      priceRub: "≈ 21 800 ₽",
     },
     elite: {
-      features: ["Всё из тарифа PRO / Mentor", "1 реальный платный заказ от компании (30 000 ₸)", "Совместная сборка 1 креатива «под ключ»", "Разбор промптов и пайплайна до идеала", "Приоритетная обратная связь", "Личное видение автора курса"],
-      subs: ["", "портфолио, клиенты, бренд — создаем на деле", "идея → промпт → визуал → видео → звук → финал", "", "", ""],
+      features: ["Всё из тарифа PRO / Mentor", "1 реальный платный заказ от компании (30 000 ₸)", "Совместная сборка 1 креатива «под ключ»", "Разбор промптов и пайплайна до идеала", "Приоритетная обратная связь", "Личное видение автора курса", "Онлайн-созвоны с автором курса"],
+      subs: ["", "портфолио, клиенты, бренд — создаем на деле", "идея → промпт → визуал → видео → звук → финал", "", "", "", ""],
+      priceKzt: "200 000 ₸",
+      priceRub: "≈ 36 400 ₽",
     },
   },
   faq: {
@@ -446,18 +452,22 @@ const kz: TranslationKeys = {
     studioDesc: "Бұл жай ғана оқу емес, бірлескен продакшн-ойлау.",
     studioFooter: "Жай ғана оқу емес, студия деңгейіндегі нәтиже алғысы келетіндерге.",
     proFooter: "Максималды нәтиже мен жеке талдау алғысы келетіндерге сәйкес келеді",
-    light: {
-      features: ["Барлық 8 модульге қол жетімділік", "5–6 сағат видео", "Презентациялар мен нұсқаулықтар"],
-    },
+    priceLabel: "Бағасы",
     basic: {
       features: ["Барлық 8 модульге қол жетімділік", "5–6 сағат видео", "Презентациялар мен нұсқаулықтар", "Үй тапсырмалары", "ҮТ тексеру", "Жұмыстар бойынша кері байланыс"],
+      priceKzt: "80 000 ₸",
+      priceRub: "≈ 14 500 ₽",
     },
     pro: {
-      features: ["Basic тарифінің бәрі", "Курс авторының жеке қатысуы", "Аптасына 2 тірі қоңырау", "Әр креативті талдау", "Кадрлармен, жарықпен, қозғалыспен егжей-тегжейлі жұмыс", "Сұрақтарға тірі жауаптар", "Жылдамдатылған өсу және тереңдік"],
+      features: ["Basic тарифінің бәрі", "Курс авторының жеке қатысуы", "Әр креативті талдау", "Кадрлармен, жарықпен, қозғалыспен егжей-тегжейлі жұмыс", "Жылдамдатылған өсу және тереңдік"],
+      priceKzt: "120 000 ₸",
+      priceRub: "≈ 21 800 ₽",
     },
     elite: {
-      features: ["PRO / Mentor тарифінің бәрі", "Компаниядан 1 нақты ақылы тапсырыс (30 000 ₸)", "1 креативті «кілтке» бірге жинау", "Промпттер мен пайплайнды идеалға дейін талдау", "Басымдықты кері байланыс", "Курс авторының жеке көзқарасы"],
-      subs: ["", "портфолио, клиенттер, бренд — іс жүзінде жасаймыз", "идея → промпт → визуал → видео → дыбыс → финал", "", "", ""],
+      features: ["PRO / Mentor тарифінің бәрі", "Компаниядан 1 нақты ақылы тапсырыс (30 000 ₸)", "1 креативті «кілтке» бірге жинау", "Промпттер мен пайплайнды идеалға дейін талдау", "Басымдықты кері байланыс", "Курс авторының жеке көзқарасы", "Курс авторымен онлайн-қоңыраулар"],
+      subs: ["", "портфолио, клиенттер, бренд — іс жүзінде жасаймыз", "идея → промпт → визуал → видео → дыбыс → финал", "", "", "", ""],
+      priceKzt: "200 000 ₸",
+      priceRub: "≈ 36 400 ₽",
     },
   },
   faq: {
@@ -642,18 +652,22 @@ const en: TranslationKeys = {
     studioDesc: "This is no longer just learning, it's collaborative production thinking.",
     studioFooter: "For those who want studio-level results, not just training.",
     proFooter: "For those who want maximum results and personal reviews",
-    light: {
-      features: ["Access to all 8 modules", "5–6 hours of video", "Presentations and guides"],
-    },
+    priceLabel: "Price",
     basic: {
       features: ["Access to all 8 modules", "5–6 hours of video", "Presentations and guides", "Homework assignments", "Homework review", "Work feedback"],
+      priceKzt: "80,000 ₸",
+      priceRub: "≈ 14,500 ₽",
     },
     pro: {
-      features: ["Everything from Basic", "Personal involvement of the course author", "2 live calls per week", "Review of each creative", "Detailed work with shots, light, motion", "Live Q&A", "Accelerated growth and depth"],
+      features: ["Everything from Basic", "Personal involvement of the course author", "Review of each creative", "Detailed work with shots, light, motion", "Accelerated growth and depth"],
+      priceKzt: "120,000 ₸",
+      priceRub: "≈ 21,800 ₽",
     },
     elite: {
-      features: ["Everything from PRO / Mentor", "1 real paid order from a company (30,000 ₸)", "Joint assembly of 1 creative \"turnkey\"", "Prompt and pipeline review to perfection", "Priority feedback", "Course author's personal vision"],
-      subs: ["", "portfolio, clients, brand — we create in practice", "idea → prompt → visual → video → sound → final", "", "", ""],
+      features: ["Everything from PRO / Mentor", "1 real paid order from a company (30,000 ₸)", "Joint assembly of 1 creative \"turnkey\"", "Prompt and pipeline review to perfection", "Priority feedback", "Course author's personal vision", "Online calls with the course author"],
+      subs: ["", "portfolio, clients, brand — we create in practice", "idea → prompt → visual → video → sound → final", "", "", "", ""],
+      priceKzt: "200,000 ₸",
+      priceRub: "≈ 36,400 ₽",
     },
   },
   faq: {
