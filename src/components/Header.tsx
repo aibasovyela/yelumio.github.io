@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="absolute inset-0 bg-[hsl(0_0%_100%/0.8)] backdrop-blur-2xl border-b border-[hsl(240_6%_10%/0.08)]" />
+        <div className="absolute inset-0 bg-background/75 backdrop-blur-2xl border-b border-border" />
         
         <div className="container relative">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -50,7 +50,7 @@ export const Header = () => {
           </div>
 
           {isMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-[hsl(0_0%_100%/0.95)] backdrop-blur-2xl border-b border-[hsl(240_6%_10%/0.08)] p-6 space-y-4">
+            <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-2xl border-b border-border p-6 space-y-4">
               <a href="#program" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.program}</a>
               <a href="#pricing" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.pricing}</a>
               <a href="#faq" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.faq}</a>
