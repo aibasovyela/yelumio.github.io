@@ -1,8 +1,6 @@
 import { GlassCard } from "@/components/ui/GlassCard";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { Check, Star, Users, Video, FileText, MessageCircle, Zap, Briefcase, Sparkles, Crown } from "lucide-react";
-import { useState } from "react";
-import { PricingEnrollModal } from "@/components/PricingEnrollModal";
 import { useLanguage } from "@/i18n/LanguageContext";
 import kaspiBadge from "@/assets/kaspi_badge.png";
 
@@ -10,16 +8,16 @@ const basicIcons = [Video, Zap, FileText, Check, Check, MessageCircle];
 const proIcons = [Check, Star, Zap, Check, Star];
 const eliteIcons = [Check, Briefcase, Sparkles, Zap, Star, Crown, Users];
 
+const WHATSAPP_NUMBER = "77016853038";
+
+const openWhatsApp = (planName: string) => {
+  const text = `Здравствуйте! Я хочу обучиться создавать ИИ креативы. Тариф который я выбрал: "${planName}".`;
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 export const PricingSection = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState({ name: "", price: "" });
   const { t } = useLanguage();
-
-  const openModal = (name: string, price: string) => {
-    setSelectedPlan({ name, price });
-    setModalOpen(true);
-  };
-
   return (
     <>
       <section className="section-padding">
@@ -66,7 +64,7 @@ export const PricingSection = () => {
                     );
                   })}
                 </ul>
-                <button className="btn-secondary w-full" onClick={() => openModal("Basic", t.pricing.basic.priceKzt)}>
+                <button className="btn-secondary w-full" onClick={() => openWhatsApp("Basic")}>
                   {t.pricing.choosePlan} Basic
                 </button>
               </GlassCard>
@@ -104,7 +102,7 @@ export const PricingSection = () => {
                       );
                     })}
                   </ul>
-                  <button className="btn-primary w-full" onClick={() => openModal("PRO / Mentor", t.pricing.pro.priceKzt)}>
+                  <button className="btn-primary w-full" onClick={() => openWhatsApp("PRO / Mentor")}>
                     {t.pricing.choosePlan} PRO
                   </button>
                   <p className="text-xs text-center text-muted-foreground">
@@ -159,7 +157,7 @@ export const PricingSection = () => {
 
                   <button 
                     className="btn-primary w-full"
-                    onClick={() => openModal("ELITE / Studio", t.pricing.elite.priceKzt)}
+                    onClick={() => openWhatsApp("ELITE / Studio")}
                   >
                     {t.pricing.choosePlan} ELITE
                   </button>
@@ -171,8 +169,6 @@ export const PricingSection = () => {
           </div>
         </div>
       </section>
-
-      <PricingEnrollModal open={modalOpen} onOpenChange={setModalOpen} planName={selectedPlan.name} planPrice={selectedPlan.price} />
     </>
   );
 };
