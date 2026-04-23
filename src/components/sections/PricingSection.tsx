@@ -42,32 +42,7 @@ export const PricingSection = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-start pt-6">
-            {/* Light */}
-            <ScrollReveal delay={100}>
-              <GlassCard className="p-6 md:p-8 space-y-6" hover={false}>
-                <div>
-                  <h3 className="text-2xl font-bold">Light</h3>
-                </div>
-                <ul className="space-y-3">
-                  {t.pricing.light.features.map((text, i) => {
-                    const Icon = lightIcons[i];
-                    return (
-                      <li key={i} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
-                          <Icon size={12} className="text-primary" />
-                        </div>
-                        <span className="text-sm">{text}</span>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <button className="btn-secondary w-full" onClick={() => openModal("Light", "50 000")}>
-                  {t.pricing.choosePlan} Light
-                </button>
-              </GlassCard>
-            </ScrollReveal>
-
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start pt-6">
             {/* Basic */}
             <ScrollReveal delay={150}>
               <GlassCard className="p-6 md:p-8 space-y-6" hover={false}>
