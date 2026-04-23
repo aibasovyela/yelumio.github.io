@@ -61,12 +61,14 @@ export interface TranslationKeys {
     studioDesc: string;
     studioFooter: string;
     proFooter: string;
-    light: { features: string[] };
-    basic: { features: string[] };
-    pro: { features: string[] };
+    priceLabel: string;
+    basic: { features: string[]; priceKzt: string; priceRub: string };
+    pro: { features: string[]; priceKzt: string; priceRub: string };
     elite: {
       features: string[];
       subs: string[];
+      priceKzt: string;
+      priceRub: string;
     };
   };
   // FAQ
