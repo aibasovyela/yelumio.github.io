@@ -11,29 +11,46 @@ export const HeroSection = () => {
 
   return (
     <>
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[hsl(40_50%_88%)] text-[hsl(240_6%_7%)]">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-background text-foreground">
+        {/* Cinema Noir vignette + warm gold radial */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 30%, hsl(38 60% 40% / 0.18) 0%, transparent 55%), radial-gradient(ellipse at 50% 100%, hsl(0 0% 0% / 0.6) 0%, transparent 60%)",
+          }}
+        />
+        {/* Subtle film grain via repeating gradient */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, hsl(38 60% 56%) 0, hsl(38 60% 56%) 1px, transparent 1px, transparent 3px)",
+          }}
+        />
+
         <div className="container relative z-10 pt-28 pb-20">
           <div className="flex flex-col items-center text-center space-y-8">
-            
+
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-[hsl(240_6%_7%)]">{t.hero.stream}</h2>
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white border-0" style={{ background: "linear-gradient(160deg, hsl(45 80% 50%), hsl(35 90% 45%), hsl(25 85% 40%))" }}>
-                <span className="w-2 h-2 rounded-full bg-white" />
-                <span className="text-sm font-semibold tracking-widest uppercase text-white">{t.hero.startDate}</span>
+              <p className="mono-label">{t.hero.stream}</p>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-sm font-semibold tracking-widest uppercase text-primary" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{t.hero.startDate}</span>
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] max-w-3xl">
-              {t.hero.title}<span className="neon-underline">{t.hero.titleHighlight}</span>{t.hero.titleSub}
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] max-w-3xl text-foreground">
+              {t.hero.title}<span className="neon-underline text-gradient">{t.hero.titleHighlight}</span>{t.hero.titleSub}
             </h1>
 
-            <p className="text-lg text-[hsl(240_6%_7%)] max-w-2xl leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
               {t.hero.description}
             </p>
 
-            {/* Author photo - horizontal */}
+            {/* Author photo - cinema frame */}
             <div className="w-full max-w-2xl">
-              <div className="relative p-3 rounded-2xl border border-[hsl(240_6%_7%/0.1)] bg-[hsl(240_6%_7%/0.08)] backdrop-blur-xl">
+              <div className="relative p-3 rounded-2xl border border-primary/20 bg-card/40 backdrop-blur-xl shadow-[0_8px_40px_hsl(0_0%_0%/0.5)]">
                 <div className="relative overflow-hidden rounded-xl">
                   <img
                     src={authorPhoto}
@@ -44,37 +61,38 @@ export const HeroSection = () => {
                     fetchPriority="high"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(48_100%_50%/0.2)] via-transparent to-transparent" />
+                  {/* Cinematic letterbox + warm tint */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/30" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/5 mix-blend-overlay" />
                 </div>
               </div>
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row gap-4 pt-2 flex-wrap justify-center">
               <button
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base text-white transition-all duration-300 hover:-translate-y-0.5"
-                style={{ background: "linear-gradient(160deg, hsl(45 80% 50%), hsl(35 90% 45%), hsl(25 85% 40%))", boxShadow: "0 4px 20px hsl(35 80% 45% / 0.3)" }}
+                className="btn-primary gap-2"
                 onClick={() => setIsEnrollOpen(true)}
               >
                 {t.hero.enrollBtn}
                 <ArrowRight size={18} />
               </button>
               <button
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-[hsl(240_6%_7%/0.3)] text-[hsl(240_6%_7%)] font-semibold text-base hover:bg-[hsl(240_6%_7%/0.08)] transition-colors"
+                className="btn-secondary gap-2"
                 onClick={() => document.getElementById('program')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Play size={18} />
                 {t.hero.programBtn}
               </button>
               <button
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-[hsl(240_6%_7%/0.3)] text-[hsl(240_6%_7%)] font-semibold text-base hover:bg-[hsl(240_6%_7%/0.08)] transition-colors"
-                onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
+                className="btn-secondary gap-2"
+                onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <GraduationCap size={18} />
                 {t.hero.studentWorksBtn}
               </button>
               <button
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-[hsl(240_6%_7%/0.3)] text-[hsl(240_6%_7%)] font-semibold text-base hover:bg-[hsl(240_6%_7%/0.08)] transition-colors"
+                className="btn-secondary gap-2"
                 onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <HelpCircle size={18} />
