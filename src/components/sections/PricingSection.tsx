@@ -1,8 +1,6 @@
 import { GlassCard } from "@/components/ui/GlassCard";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { Check, Star, Users, Video, FileText, MessageCircle, Zap, Briefcase, Sparkles, Crown } from "lucide-react";
-import { useState } from "react";
-import { PricingEnrollModal } from "@/components/PricingEnrollModal";
 import { useLanguage } from "@/i18n/LanguageContext";
 import kaspiBadge from "@/assets/kaspi_badge.png";
 
@@ -10,16 +8,16 @@ const basicIcons = [Video, Zap, FileText, Check, Check, MessageCircle];
 const proIcons = [Check, Star, Zap, Check, Star];
 const eliteIcons = [Check, Briefcase, Sparkles, Zap, Star, Crown, Users];
 
+const WHATSAPP_NUMBER = "77016853038";
+
+const openWhatsApp = (planName: string) => {
+  const text = `Здравствуйте! Я хочу обучиться создавать ИИ креативы. Тариф который я выбрал: "${planName}".`;
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 export const PricingSection = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState({ name: "", price: "" });
   const { t } = useLanguage();
-
-  const openModal = (name: string, price: string) => {
-    setSelectedPlan({ name, price });
-    setModalOpen(true);
-  };
-
   return (
     <>
       <section className="section-padding">
