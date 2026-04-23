@@ -8,7 +8,7 @@ const basicIcons = [Video, Zap, FileText, Check, Check, MessageCircle];
 const proIcons = [Check, Star, Zap, Check, Star];
 const eliteIcons = [Check, Briefcase, Sparkles, Zap, Star, Crown, Users];
 
-const WHATSAPP_NUMBER = "77016853038";
+const WHATSAPP_NUMBER = "77026853038";
 
 const openWhatsApp = (planName: string) => {
   const text = `Здравствуйте! Я хочу обучиться создавать ИИ креативы. Тариф который я выбрал: "${planName}".`;
