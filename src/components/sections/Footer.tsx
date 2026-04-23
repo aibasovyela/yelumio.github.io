@@ -5,7 +5,7 @@ export const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="py-16 border-t border-[hsl(240_6%_10%/0.08)] bg-[hsl(0_0%_100%)]">
+    <footer className="py-16 border-t border-border bg-card-alt">
       <div className="container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
