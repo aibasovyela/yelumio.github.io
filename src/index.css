@@ -4,67 +4,69 @@
 
 @layer base {
   :root {
-    --background: 40 30% 96%;
-    --foreground: 240 6% 10%;
+    /* Cinema Noir — deep warm black with golden accents */
+    --background: 18 25% 8%;        /* #1a1410 */
+    --foreground: 36 30% 92%;       /* warm off-white */
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 6% 10%;
+    --card: 20 22% 11%;             /* slightly lifted from bg */
+    --card-foreground: 36 30% 92%;
 
-    --card-alt: 40 30% 94%;
-    --card-alt-foreground: 240 6% 10%;
+    --card-alt: 20 20% 13%;
+    --card-alt-foreground: 36 30% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 6% 10%;
+    --popover: 20 22% 11%;
+    --popover-foreground: 36 30% 92%;
 
-    --primary: 48 100% 50%;
-    --primary-foreground: 240 6% 7%;
+    /* Warm gold #d4a24a */
+    --primary: 38 60% 56%;
+    --primary-foreground: 18 30% 8%;
 
-    --secondary: 40 20% 92%;
-    --secondary-foreground: 240 6% 25%;
+    --secondary: 22 18% 16%;
+    --secondary-foreground: 36 25% 85%;
 
-    --muted: 40 15% 90%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 22 15% 18%;
+    --muted-foreground: 36 12% 65%;
 
-    --accent: 48 60% 90%;
-    --accent-foreground: 48 80% 30%;
+    --accent: 38 50% 22%;
+    --accent-foreground: 38 80% 75%;
 
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 85% 97%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 10% / 0.1;
-    --input: 40 15% 88%;
-    --ring: 48 100% 50%;
+    --border: 36 25% 92% / 0.08;
+    --input: 22 18% 18%;
+    --ring: 38 60% 56%;
 
     --radius: 0.75rem;
 
-    --glow-primary: 48 100% 50%;
-    --shadow-glow: 0 0 40px hsl(48 100% 50% / 0.15);
-    --shadow-glow-lg: 0 0 60px hsl(48 100% 50% / 0.2);
+    --glow-primary: 38 60% 56%;
+    --shadow-glow: 0 0 40px hsl(38 60% 56% / 0.25);
+    --shadow-glow-lg: 0 0 60px hsl(38 60% 56% / 0.35);
 
-    --glass-bg: 0 0% 100% / 0.7;
-    --glass-bg-light: 40 30% 96% / 0.7;
-    --glass-border: 240 6% 10% / 0.08;
+    --glass-bg: 22 18% 14% / 0.6;
+    --glass-bg-light: 22 18% 18% / 0.5;
+    --glass-border: 36 25% 92% / 0.08;
     --glass-blur: 24px;
-    --glass-shine: linear-gradient(135deg, hsl(0 0% 100% / 0.5) 0%, hsl(0 0% 100% / 0.1) 50%, transparent 100%);
+    --glass-shine: linear-gradient(135deg, hsl(38 60% 56% / 0.12) 0%, hsl(36 25% 92% / 0.04) 50%, transparent 100%);
 
-    --chart-1: 48 100% 50%;
-    --chart-2: 42 90% 45%;
-    --chart-3: 55 95% 55%;
-    --chart-4: 38 80% 40%;
-    --chart-5: 240 4% 70%;
+    --chart-1: 38 60% 56%;
+    --chart-2: 32 55% 48%;
+    --chart-3: 44 70% 62%;
+    --chart-4: 28 50% 42%;
+    --chart-5: 36 10% 55%;
 
-    --sidebar: 40 30% 94%;
-    --sidebar-foreground: 240 6% 10%;
-    --sidebar-primary: 48 100% 50%;
-    --sidebar-primary-foreground: 240 6% 7%;
-    --sidebar-accent: 40 20% 90%;
-    --sidebar-accent-foreground: 240 6% 10%;
-    --sidebar-border: 240 6% 10% / 0.08;
-    --sidebar-ring: 48 100% 50%;
+    --sidebar: 20 22% 10%;
+    --sidebar-foreground: 36 30% 92%;
+    --sidebar-primary: 38 60% 56%;
+    --sidebar-primary-foreground: 18 30% 8%;
+    --sidebar-accent: 22 18% 16%;
+    --sidebar-accent-foreground: 36 30% 92%;
+    --sidebar-border: 36 25% 92% / 0.08;
+    --sidebar-ring: 38 60% 56%;
 
-    /* Light theme section backgrounds */
-    --section-beige: 40 50% 88%;
-    --section-white: 0 0% 100%;
+    /* Cinema Noir section backgrounds — deep warm tones */
+    --section-beige: 20 22% 11%;     /* slightly warmer */
+    --section-white: 18 25% 8%;      /* base bg */
   }
 }
 
