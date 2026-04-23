@@ -64,7 +64,7 @@ export const PricingSection = () => {
                     );
                   })}
                 </ul>
-                <button className="btn-secondary w-full" onClick={() => openModal("Basic", t.pricing.basic.priceKzt)}>
+                <button className="btn-secondary w-full" onClick={() => openWhatsApp("Basic")}>
                   {t.pricing.choosePlan} Basic
                 </button>
               </GlassCard>
@@ -102,7 +102,7 @@ export const PricingSection = () => {
                       );
                     })}
                   </ul>
-                  <button className="btn-primary w-full" onClick={() => openModal("PRO / Mentor", t.pricing.pro.priceKzt)}>
+                  <button className="btn-primary w-full" onClick={() => openWhatsApp("PRO / Mentor")}>
                     {t.pricing.choosePlan} PRO
                   </button>
                   <p className="text-xs text-center text-muted-foreground">
@@ -157,7 +157,7 @@ export const PricingSection = () => {
 
                   <button 
                     className="btn-primary w-full"
-                    onClick={() => openModal("ELITE / Studio", t.pricing.elite.priceKzt)}
+                    onClick={() => openWhatsApp("ELITE / Studio")}
                   >
                     {t.pricing.choosePlan} ELITE
                   </button>
@@ -169,8 +169,6 @@ export const PricingSection = () => {
           </div>
         </div>
       </section>
-
-      <PricingEnrollModal open={modalOpen} onOpenChange={setModalOpen} planName={selectedPlan.name} planPrice={selectedPlan.price} />
     </>
   );
 };
