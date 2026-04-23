@@ -6,10 +6,9 @@ import { PricingEnrollModal } from "@/components/PricingEnrollModal";
 import { useLanguage } from "@/i18n/LanguageContext";
 import kaspiBadge from "@/assets/kaspi_badge.png";
 
-const lightIcons = [Video, Zap, FileText];
 const basicIcons = [Video, Zap, FileText, Check, Check, MessageCircle];
-const proIcons = [Check, Star, Users, Zap, Check, MessageCircle, Star];
-const eliteIcons = [Check, Briefcase, Sparkles, Zap, Star, Crown];
+const proIcons = [Check, Star, Zap, Check, Star];
+const eliteIcons = [Check, Briefcase, Sparkles, Zap, Star, Crown, Users];
 
 export const PricingSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
