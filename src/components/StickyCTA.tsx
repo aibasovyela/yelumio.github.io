@@ -29,7 +29,7 @@ export const StickyCTA = () => {
             </div>
             <button
               className="btn-primary gap-2 whitespace-nowrap ml-auto"
-              onClick={() => setIsEnrollOpen(true)}
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t.stickyCta.enrollBtn}
               <ArrowRight size={16} />
