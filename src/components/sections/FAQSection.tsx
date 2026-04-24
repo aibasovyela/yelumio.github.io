@@ -28,7 +28,7 @@ export const FAQSection = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="btn-primary gap-2" onClick={() => setIsEnrollOpen(true)}>
+                  <button className="btn-primary gap-2" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
                     {t.faq.enrollBtn}
                     <ArrowRight size={18} />
                   </button>
