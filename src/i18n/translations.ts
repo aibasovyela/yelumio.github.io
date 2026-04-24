@@ -255,8 +255,8 @@ const ru: TranslationKeys = {
     priceLabel: "Стоимость",
     basic: {
       features: ["Доступ ко всем 8 модулям", "5–6 часов видео", "Презентации и инструкции", "Домашние задания", "Проверка ДЗ", "Обратная связь по работам"],
-      priceKzt: "80 000 ₸",
-      priceRub: "≈ 14 500 ₽",
+      priceKzt: "120 000 ₸",
+      priceRub: "≈ 21 800 ₽",
     },
     pro: {
       features: ["Всё из тарифа Basic", "Личное участие автора курса", "Разбор каждого креатива", "Детальная работа с кадрами, светом, движением", "Ускоренный рост и глубина"],
@@ -455,8 +455,8 @@ const kz: TranslationKeys = {
     priceLabel: "Бағасы",
     basic: {
       features: ["Барлық 8 модульге қол жетімділік", "5–6 сағат видео", "Презентациялар мен нұсқаулықтар", "Үй тапсырмалары", "ҮТ тексеру", "Жұмыстар бойынша кері байланыс"],
-      priceKzt: "80 000 ₸",
-      priceRub: "≈ 14 500 ₽",
+      priceKzt: "120 000 ₸",
+      priceRub: "≈ 21 800 ₽",
     },
     pro: {
       features: ["Basic тарифінің бәрі", "Курс авторының жеке қатысуы", "Әр креативті талдау", "Кадрлармен, жарықпен, қозғалыспен егжей-тегжейлі жұмыс", "Жылдамдатылған өсу және тереңдік"],
@@ -655,8 +655,8 @@ const en: TranslationKeys = {
     priceLabel: "Price",
     basic: {
       features: ["Access to all 8 modules", "5–6 hours of video", "Presentations and guides", "Homework assignments", "Homework review", "Work feedback"],
-      priceKzt: "80,000 ₸",
-      priceRub: "≈ 14,500 ₽",
+      priceKzt: "120,000 ₸",
+      priceRub: "≈ 21,800 ₽",
     },
     pro: {
       features: ["Everything from Basic", "Personal involvement of the course author", "Review of each creative", "Detailed work with shots, light, motion", "Accelerated growth and depth"],
