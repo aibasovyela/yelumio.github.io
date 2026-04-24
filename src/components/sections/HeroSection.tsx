@@ -72,7 +72,7 @@ export const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-2 flex-wrap justify-center">
               <button
                 className="btn-primary gap-2"
-                onClick={() => setIsEnrollOpen(true)}
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {t.hero.enrollBtn}
                 <ArrowRight size={18} />
