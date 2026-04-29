@@ -1,7 +1,10 @@
 import { GlassCard } from "@/components/ui/GlassCard";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { Check, Star, Users, Video, FileText, MessageCircle, Zap, Briefcase, Sparkles, Crown } from "lucide-react";
+import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { PricingEnrollModal } from "@/components/PricingEnrollModal";
+import { trackEvent } from "@/lib/analytics";
 import kaspiBadge from "@/assets/kaspi_badge.png";
 
 const basicIcons = [Video, Zap, FileText, Check, Check, MessageCircle];
@@ -13,11 +16,19 @@ const WHATSAPP_NUMBER = "77026853038";
 const openWhatsApp = (planName: string) => {
   const text = `Здравствуйте! Я хочу обучиться создавать ИИ креативы. Тариф который я выбрал: "${planName}".`;
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  trackEvent("enroll_click", { location: "pricing", plan: planName });
   window.open(url, "_blank", "noopener,noreferrer");
 };
 
 export const PricingSection = () => {
   const { t } = useLanguage();
+  const [selectedPlan, setSelectedPlan] = useState<{ name: string; price: string } | null>(null);
+
+  const openPricingModal = (name: string, price: string) => {
+    trackEvent("enroll_click", { location: "pricing", plan: name });
+    setSelectedPlan({ name, price });
+  };
+
   return (
     <>
       <section className="section-padding">
@@ -49,7 +60,6 @@ export const PricingSection = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold text-foreground">{t.pricing.basic.priceKzt}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{t.pricing.basic.priceRub}</p>
                 </div>
                 <ul className="space-y-3">
                   {t.pricing.basic.features.map((text, i) => {
@@ -86,7 +96,6 @@ export const PricingSection = () => {
                   </div>
                   <div>
                     <p className="text-3xl font-bold text-foreground">{t.pricing.pro.priceKzt}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{t.pricing.pro.priceRub}</p>
                   </div>
                   <ul className="space-y-3">
                     {t.pricing.pro.features.map((text, i) => {
@@ -102,7 +111,7 @@ export const PricingSection = () => {
                       );
                     })}
                   </ul>
-                  <button className="btn-primary w-full" onClick={() => openWhatsApp("PRO / Mentor")}>
+                  <button className="btn-primary w-full" onClick={() => openPricingModal("PRO / Mentor", t.pricing.pro.priceKzt)}>
                     {t.pricing.choosePlan} PRO
                   </button>
                   <p className="text-xs text-center text-muted-foreground">
@@ -129,7 +138,6 @@ export const PricingSection = () => {
 
                   <div>
                     <p className="text-3xl font-bold text-foreground">{t.pricing.elite.priceKzt}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{t.pricing.elite.priceRub}</p>
                   </div>
 
                   <div className="text-sm text-muted-foreground italic border-l-2 border-primary/40 pl-3">
@@ -157,7 +165,7 @@ export const PricingSection = () => {
 
                   <button 
                     className="btn-primary w-full"
-                    onClick={() => openWhatsApp("ELITE / Studio")}
+                    onClick={() => openPricingModal("ELITE / Studio", t.pricing.elite.priceKzt)}
                   >
                     {t.pricing.choosePlan} ELITE
                   </button>
@@ -167,8 +175,22 @@ export const PricingSection = () => {
               </div>
             </ScrollReveal>
           </div>
+
+          <ScrollReveal delay={350}>
+            <div className="max-w-3xl mx-auto mt-10 rounded-2xl border border-primary/20 bg-primary/10 px-6 py-5 text-center">
+              <h3 className="text-xl font-bold text-foreground">{t.pricing.guaranteeTitle}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{t.pricing.guaranteeText}</p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
+
+      <PricingEnrollModal
+        open={Boolean(selectedPlan)}
+        onOpenChange={(open) => !open && setSelectedPlan(null)}
+        planName={selectedPlan?.name ?? ""}
+        planPrice={selectedPlan?.price ?? ""}
+      />
     </>
   );
 };
