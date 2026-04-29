@@ -48,24 +48,23 @@
     --glass-blur: 24px;
     --glass-shine: linear-gradient(135deg, hsl(var(--primary) / 0.14) 0%, hsl(var(--foreground) / 0.04) 50%, transparent 100%);
 
-    --chart-1: 38 60% 56%;
-    --chart-2: 32 55% 48%;
-    --chart-3: 44 70% 62%;
-    --chart-4: 28 50% 42%;
-    --chart-5: 36 10% 55%;
+    --chart-1: 48 91% 53%;
+    --chart-2: 23 72% 56%;
+    --chart-3: 0 50% 36%;
+    --chart-4: 43 56% 90%;
+    --chart-5: 40 61% 30%;
 
-    --sidebar: 20 22% 10%;
-    --sidebar-foreground: 36 30% 92%;
-    --sidebar-primary: 38 60% 56%;
-    --sidebar-primary-foreground: 18 30% 8%;
-    --sidebar-accent: 22 18% 16%;
-    --sidebar-accent-foreground: 36 30% 92%;
-    --sidebar-border: 36 25% 92% / 0.08;
-    --sidebar-ring: 38 60% 56%;
+    --sidebar: 40 11% 5%;
+    --sidebar-foreground: 43 56% 90%;
+    --sidebar-primary: 48 91% 53%;
+    --sidebar-primary-foreground: 40 11% 5%;
+    --sidebar-accent: 39 28% 14%;
+    --sidebar-accent-foreground: 43 56% 90%;
+    --sidebar-border: 43 56% 90% / 0.1;
+    --sidebar-ring: 48 91% 53%;
 
-    /* Cinema Noir section backgrounds — deep warm tones */
-    --section-beige: 20 22% 11%;     /* slightly warmer */
-    --section-white: 18 25% 8%;      /* base bg */
+    --section-beige: 38 15% 11%;
+    --section-white: 40 11% 5%;
   }
 }
 
