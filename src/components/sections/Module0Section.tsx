@@ -1,7 +1,7 @@
 import { GlassCard } from "@/components/ui/GlassCard";
 import { IconBox } from "@/components/ui/IconBox";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
-import { Lightbulb, FileText, Camera, Video, Music, AlertCircle } from "lucide-react";
+import { Lightbulb, FileText, Camera, Video, Music } from "lucide-react";
 
 const modules = [{
   icon: Lightbulb,
@@ -24,8 +24,6 @@ const modules = [{
   title: "МУЗЫКА И РЕЧЬ",
   points: ["Почему звук делает «дорого»", "Музыка, саунд-дизайн, голос", "Когда нужен голос, а когда нет"]
 }];
-
-const mistakes = ["Короткие промпты", "Хаотичное движение", "Красивая картинка без смысла", "Игнор звука", "Ожидание «волшебной кнопки»", "Желание сделать всё быстро без понимания процесса"];
 
 export const Module0Section = () => {
   return (
@@ -69,20 +67,6 @@ export const Module0Section = () => {
               </GlassCard>
             </ScrollReveal>
           ))}
-
-          <GlassCard className="md:col-span-2 lg:col-span-3 lg:max-w-3xl lg:mx-auto border-destructive/20">
-            <div className="flex items-center gap-4 mb-6">
-              <IconBox icon={AlertCircle} className="bg-destructive/15" />
-              <h3 className="text-xl font-bold">Типичные ошибки новичков</h3>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {mistakes.map((mistake, index) => (
-                <span key={index} className="px-4 py-2 rounded-full bg-secondary text-sm font-medium border border-border">
-                  {mistake}
-                </span>
-              ))}
-            </div>
-          </GlassCard>
         </div>
       </div>
     </section>
