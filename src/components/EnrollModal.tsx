@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { Link } from "react-router-dom";
+import { trackEvent } from "@/lib/analytics";
 
 interface EnrollModalProps {
   open: boolean;
@@ -20,11 +22,17 @@ export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
   const [phone, setPhone] = useState("+7");
   const [purpose, setPurpose] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [consentAccepted, setConsentAccepted] = useState(false);
   const { toast } = useToast();
   const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!consentAccepted) {
+      toast({ title: t.enrollModal.consentRequired, variant: "destructive" });
+      return;
+    }
 
     if (!name.trim() || !phone.trim() || phone.trim() === "+7") {
       toast({
@@ -44,10 +52,12 @@ export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
 
       if (error) throw error;
 
+      trackEvent("form_submit", { form: "enroll" });
       toast({ title: t.enrollModal.success, description: t.enrollModal.successDesc });
       setName("");
       setPhone("+7");
       setPurpose("");
+      setConsentAccepted(false);
       onOpenChange(false);
     } catch (error) {
       console.error("Error sending to Telegram:", error);
@@ -77,16 +87,19 @@ export const EnrollModal = ({ open, onOpenChange }: EnrollModalProps) => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="enroll-purpose">Где вы хотите применять ИИ?</Label>
-            <Textarea id="enroll-purpose" placeholder="Например: видеопродакшн, маркетинг, дизайн..." value={purpose} onChange={(e) => setPurpose(e.target.value)} className="resize-none" rows={3} />
+            <Label htmlFor="enroll-purpose">{t.pricingModal.purposeLabel}</Label>
+            <Textarea id="enroll-purpose" placeholder={t.pricingModal.purposePlaceholder} value={purpose} onChange={(e) => setPurpose(e.target.value)} className="resize-none" rows={3} />
           </div>
+
+          <label className="flex items-start gap-3 text-xs text-muted-foreground">
+            <input type="checkbox" checked={consentAccepted} onChange={(e) => setConsentAccepted(e.target.checked)} className="mt-0.5 accent-primary" required />
+            <span>{t.enrollModal.consent} <Link to="/privacy" className="text-primary hover:text-foreground">/privacy</Link></span>
+          </label>
 
           <button type="submit" className="btn-primary w-full gap-2" disabled={isSubmitting}>
             {isSubmitting ? t.enrollModal.submitting : t.enrollModal.submitBtn}
             {!isSubmitting && <ArrowRight size={18} />}
           </button>
-
-          <p className="text-xs text-muted-foreground text-center">{t.enrollModal.consent}</p>
         </form>
       </DialogContent>
     </Dialog>

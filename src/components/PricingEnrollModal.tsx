@@ -7,6 +7,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Textarea } from "@/components/ui/textarea";
+import { Link } from "react-router-dom";
+import { trackEvent } from "@/lib/analytics";
 
 interface PricingEnrollModalProps {
   open: boolean;
@@ -21,12 +23,18 @@ export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: 
   const [purpose, setPurpose] = useState("");
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [consentAccepted, setConsentAccepted] = useState(false);
   const { toast } = useToast();
   const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!consentAccepted) {
+      toast({ title: t.pricingModal.consentRequired, variant: "destructive" });
+      return;
+    }
+
     const fieldErrors: { name?: string; phone?: string } = {};
     if (name.trim().length < 2) fieldErrors.name = t.pricingModal.nameError;
     if (phone.trim().length < 10) fieldErrors.phone = t.pricingModal.phoneError;
@@ -46,11 +54,13 @@ export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: 
 
       if (error) throw error;
 
+      trackEvent("form_submit", { form: "pricing", plan: planName });
       toast({ title: t.pricingModal.success, description: t.pricingModal.successDesc });
       onOpenChange(false);
       setName("");
       setPhone("+7");
       setPurpose("");
+      setConsentAccepted(false);
     } catch (error) {
       console.error("Error sending to Telegram:", error);
       toast({ title: t.pricingModal.error, description: t.pricingModal.errorDesc, variant: "destructive" });
@@ -95,16 +105,19 @@ export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: 
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="pricing-purpose" className="text-sm font-medium">Где вы хотите применять ИИ?</label>
-              <Textarea id="pricing-purpose" value={purpose} onChange={(e) => setPurpose(e.target.value)} placeholder="Например: видеопродакшн, маркетинг, дизайн..." className="rounded-xl bg-card border border-border focus:border-primary focus:outline-none transition-colors resize-none" rows={3} />
+              <label htmlFor="pricing-purpose" className="text-sm font-medium">{t.pricingModal.purposeLabel}</label>
+              <Textarea id="pricing-purpose" value={purpose} onChange={(e) => setPurpose(e.target.value)} placeholder={t.pricingModal.purposePlaceholder} className="rounded-xl bg-card border border-border focus:border-primary focus:outline-none transition-colors resize-none" rows={3} />
             </div>
+
+            <label className="flex items-start gap-3 text-xs text-muted-foreground">
+              <input type="checkbox" checked={consentAccepted} onChange={(e) => setConsentAccepted(e.target.checked)} className="mt-0.5 accent-primary" required />
+              <span>{t.pricingModal.consent} <Link to="/privacy" className="text-primary hover:text-foreground">/privacy</Link></span>
+            </label>
 
             <button type="submit" className="btn-primary w-full gap-2" disabled={isSubmitting}>
               {isSubmitting ? t.pricingModal.submitting : (<>{t.pricingModal.submitBtn}<ArrowRight size={18} /></>)}
             </button>
           </form>
-
-          <p className="text-xs text-muted-foreground text-center">{t.pricingModal.consent}</p>
         </div>
       </DialogContent>
     </Dialog>
