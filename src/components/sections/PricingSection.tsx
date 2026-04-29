@@ -176,12 +176,6 @@ export const PricingSection = () => {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={350}>
-            <div className="max-w-3xl mx-auto mt-10 rounded-2xl border border-primary/20 bg-primary/10 px-6 py-5 text-center">
-              <h3 className="text-xl font-bold text-foreground">{t.pricing.guaranteeTitle}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{t.pricing.guaranteeText}</p>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
