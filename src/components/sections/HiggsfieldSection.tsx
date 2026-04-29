@@ -2,6 +2,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { Check, ArrowRight, Lightbulb, FileText, Camera, Video, Film } from "lucide-react";
 import higgsfieldInterface from "@/assets/higgsfield-interface.png";
+import higgsfieldInterfaceWebp from "@/assets/higgsfield-interface.webp";
 
 const benefits = [
   "Стабильный результат",
@@ -69,11 +70,15 @@ export const HiggsfieldSection = () => {
 
               <div className="p-4 rounded-xl bg-primary/5 border border-primary/20 overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-glow">
                 <div className="rounded-xl overflow-hidden">
-                  <img 
-                    src={higgsfieldInterface} 
-                    alt="Интерфейс платформы Higgsfield" 
-                    className="w-full h-auto object-cover"
-                  />
+                  <picture>
+                    <source srcSet={higgsfieldInterfaceWebp} type="image/webp" />
+                    <img 
+                      src={higgsfieldInterface} 
+                      alt="Интерфейс платформы Higgsfield" 
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>

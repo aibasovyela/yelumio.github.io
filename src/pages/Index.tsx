@@ -1,8 +1,10 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StickyCTA } from "@/components/StickyCTA";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { trackSectionView } from "@/lib/analytics";
 
+const Module0Section = lazy(() => import("@/components/sections/Module0Section").then(m => ({ default: m.Module0Section })));
 const CourseProgramSection = lazy(() => import("@/components/sections/CourseProgramSection").then(m => ({ default: m.CourseProgramSection })));
 const ShowcaseSection = lazy(() => import("@/components/sections/ShowcaseSection").then(m => ({ default: m.ShowcaseSection })));
 const StudentCasesSection = lazy(() => import("@/components/sections/StudentCasesSection").then(m => ({ default: m.StudentCasesSection })));
@@ -21,6 +23,11 @@ const SectionFallback = () => (
 );
 
 const Index = () => {
+  useEffect(() => {
+    trackSectionView("pricing", "pricing_view");
+    trackSectionView("faq", "faq_view");
+  }, []);
+
   return (
     <div className="min-h-screen bg-background relative">
       <div className="relative z-10">
@@ -40,6 +47,7 @@ const Index = () => {
 
             {/* Program: beige */}
             <div id="program" className="section-beige">
+              <Module0Section />
               <CourseProgramSection />
             </div>
 

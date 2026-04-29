@@ -7,6 +7,7 @@ import { QuestionModal } from "@/components/QuestionModal";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
 
 export const FAQSection = () => {
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
@@ -28,7 +29,7 @@ export const FAQSection = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="btn-primary gap-2" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <button className="btn-primary gap-2" onClick={() => { trackEvent('enroll_click', { location: 'faq' }); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }}>
                     {t.faq.enrollBtn}
                     <ArrowRight size={18} />
                   </button>
