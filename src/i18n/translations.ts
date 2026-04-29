@@ -305,8 +305,14 @@ const ru: TranslationKeys = {
     ],
   },
   footer: {
-    brand: "ИИ-КРЕАТИВ",
-    copyright: "© 2025 ИИ-Креатив. Все права защищены.",
+    brand: "Yelumio",
+    copyright: "© 2026 Yelumio AI Studio. Все права защищены.",
+    contacts: "Контакты",
+    addressLabel: "Адрес",
+    address: "Yelumio AI Studio, Астана, Казахстан",
+    bin: "БИН/ИНН: уточняется",
+    privacy: "Политика конфиденциальности",
+    offer: "Публичная оферта",
   },
   stickyCta: {
     startDate: "Старт курса",
