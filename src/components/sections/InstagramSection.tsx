@@ -13,23 +13,23 @@ export const InstagramSection = () => {
             href="https://www.instagram.com/yelumio/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative w-72 h-80 rounded-3xl overflow-hidden flex-shrink-0 shadow-[0_8px_40px_hsl(0_0%_0%/0.6)] hover:shadow-[0_12px_50px_hsl(38_60%_56%/0.35)] transition-shadow duration-300"
+            className="group relative w-72 h-80 rounded-3xl overflow-hidden flex-shrink-0 shadow-[0_8px_40px_hsl(0_0%_0%/0.6)] hover:shadow-[0_12px_50px_hsl(var(--primary)/0.35)] transition-shadow duration-300"
             style={{
-              background: "linear-gradient(160deg, hsl(42 70% 62%), hsl(38 65% 54%), hsl(28 55% 38%))",
+              background: "linear-gradient(160deg, hsl(48 91% 62%), hsl(var(--primary)), hsl(40 61% 30%))",
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
             <div className="relative z-10 p-6 flex flex-col justify-between h-full">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <Instagram size={24} className="text-[hsl(18_30%_8%)]" />
+                  <Instagram size={24} className="text-primary-foreground" />
                 </div>
-                <h3 className="text-2xl font-bold text-[hsl(18_30%_8%)] mb-2">Наш Instagram</h3>
-                <p className="text-[hsl(18_30%_8%)]/80 text-sm leading-relaxed">
+                <h3 className="text-2xl font-bold text-primary-foreground mb-2">Наш Instagram</h3>
+                <p className="text-primary-foreground/80 text-sm leading-relaxed">
                   Новости, кейсы учеников, бэкстейджи и полезные материалы
                 </p>
               </div>
-              <button className="w-full py-3 rounded-xl bg-[hsl(18_30%_8%)]/20 backdrop-blur-sm text-[hsl(18_30%_8%)] font-semibold text-sm hover:bg-[hsl(18_30%_8%)]/30 transition-colors border border-[hsl(18_30%_8%)]/20">
+              <button className="w-full py-3 rounded-xl bg-primary-foreground/20 backdrop-blur-sm text-primary-foreground font-semibold text-sm hover:bg-primary-foreground/30 transition-colors border border-primary-foreground/20">
                 Подписывайтесь
               </button>
             </div>

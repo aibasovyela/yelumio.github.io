@@ -29,7 +29,7 @@ export const CourseProgramSection = () => {
               {t.courseProgram.modules.map((module, index) => {
                 const IconComponent = moduleIcons[index];
                 return (
-                  <AccordionItem key={index} value={`module-${index}`} className="rounded-2xl px-6 border bg-card border-border shadow-[0_4px_24px_hsl(0_0%_0%/0.4)] text-foreground data-[state=open]:border-primary/50 data-[state=open]:shadow-[0_8px_40px_hsl(38_60%_56%/0.25)] transition-all duration-300">
+                  <AccordionItem key={index} value={`module-${index}`} className="rounded-2xl px-6 border bg-card border-border shadow-[0_4px_24px_hsl(0_0%_0%/0.4)] text-foreground data-[state=open]:border-primary/50 data-[state=open]:shadow-[0_8px_40px_hsl(var(--primary)/0.25)] transition-all duration-300">
                     <AccordionTrigger className="hover:no-underline py-6">
                       <div className="flex items-center gap-4 text-left">
                         <div className="w-12 h-12 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center flex-shrink-0">

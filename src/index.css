@@ -4,69 +4,67 @@
 
 @layer base {
   :root {
-    /* Cinema Noir — deep warm black with golden accents */
-    --background: 18 25% 8%;        /* #1a1410 */
-    --foreground: 36 30% 92%;       /* warm off-white */
+    /* Yelumio Brand Book 2026 */
+    --background: 40 11% 5%;        /* Ink Black #0F0E0C */
+    --foreground: 43 56% 90%;       /* Cream #F4ECD8 */
 
-    --card: 20 22% 11%;             /* slightly lifted from bg */
-    --card-foreground: 36 30% 92%;
+    --card: 40 14% 8%;
+    --card-foreground: 43 56% 90%;
 
-    --card-alt: 20 20% 13%;
-    --card-alt-foreground: 36 30% 92%;
+    --card-alt: 38 15% 11%;
+    --card-alt-foreground: 43 56% 90%;
 
-    --popover: 20 22% 11%;
-    --popover-foreground: 36 30% 92%;
+    --popover: 40 14% 8%;
+    --popover-foreground: 43 56% 90%;
 
-    /* Warm gold #d4a24a */
-    --primary: 38 60% 56%;
-    --primary-foreground: 18 30% 8%;
+    --primary: 48 91% 53%;          /* Yelumio Yellow #F5C518 */
+    --primary-foreground: 40 11% 5%;
 
-    --secondary: 22 18% 16%;
-    --secondary-foreground: 36 25% 85%;
+    --secondary: 39 28% 14%;
+    --secondary-foreground: 43 56% 90%;
 
-    --muted: 22 15% 18%;
-    --muted-foreground: 36 12% 65%;
+    --muted: 40 18% 16%;
+    --muted-foreground: 43 28% 72%;
 
-    --accent: 38 50% 22%;
-    --accent-foreground: 38 80% 75%;
+    --accent: 23 72% 56%;           /* Yelumio School Warm Honey #E07B3C */
+    --accent-foreground: 40 11% 5%;
 
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 36 25% 92% / 0.08;
-    --input: 22 18% 18%;
-    --ring: 38 60% 56%;
+    --border: 43 56% 90% / 0.1;
+    --input: 40 18% 16%;
+    --ring: 48 91% 53%;
 
     --radius: 0.75rem;
 
-    --glow-primary: 38 60% 56%;
-    --shadow-glow: 0 0 40px hsl(38 60% 56% / 0.25);
-    --shadow-glow-lg: 0 0 60px hsl(38 60% 56% / 0.35);
+    --glow-primary: 48 91% 53%;
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.25);
+    --shadow-glow-lg: 0 0 60px hsl(var(--primary) / 0.35);
 
-    --glass-bg: 22 18% 14% / 0.6;
-    --glass-bg-light: 22 18% 18% / 0.5;
-    --glass-border: 36 25% 92% / 0.08;
+    --glass-bg: 40 14% 8% / 0.68;
+    --glass-bg-light: 39 28% 14% / 0.55;
+    --glass-border: 43 56% 90% / 0.1;
     --glass-blur: 24px;
-    --glass-shine: linear-gradient(135deg, hsl(38 60% 56% / 0.12) 0%, hsl(36 25% 92% / 0.04) 50%, transparent 100%);
+    --glass-shine: linear-gradient(135deg, hsl(var(--primary) / 0.14) 0%, hsl(var(--foreground) / 0.04) 50%, transparent 100%);
 
-    --chart-1: 38 60% 56%;
-    --chart-2: 32 55% 48%;
-    --chart-3: 44 70% 62%;
-    --chart-4: 28 50% 42%;
-    --chart-5: 36 10% 55%;
+    --chart-1: 48 91% 53%;
+    --chart-2: 23 72% 56%;
+    --chart-3: 0 50% 36%;
+    --chart-4: 43 56% 90%;
+    --chart-5: 40 61% 30%;
 
-    --sidebar: 20 22% 10%;
-    --sidebar-foreground: 36 30% 92%;
-    --sidebar-primary: 38 60% 56%;
-    --sidebar-primary-foreground: 18 30% 8%;
-    --sidebar-accent: 22 18% 16%;
-    --sidebar-accent-foreground: 36 30% 92%;
-    --sidebar-border: 36 25% 92% / 0.08;
-    --sidebar-ring: 38 60% 56%;
+    --sidebar: 40 11% 5%;
+    --sidebar-foreground: 43 56% 90%;
+    --sidebar-primary: 48 91% 53%;
+    --sidebar-primary-foreground: 40 11% 5%;
+    --sidebar-accent: 39 28% 14%;
+    --sidebar-accent-foreground: 43 56% 90%;
+    --sidebar-border: 43 56% 90% / 0.1;
+    --sidebar-ring: 48 91% 53%;
 
-    /* Cinema Noir section backgrounds — deep warm tones */
-    --section-beige: 20 22% 11%;     /* slightly warmer */
-    --section-white: 18 25% 8%;      /* base bg */
+    --section-beige: 38 15% 11%;
+    --section-white: 40 11% 5%;
   }
 }
 
@@ -94,7 +92,7 @@
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid hsl(var(--glass-border));
-    box-shadow: 0 4px 24px hsl(0 0% 0% / 0.5), inset 0 1px 0 hsl(38 60% 56% / 0.08);
+    box-shadow: 0 4px 24px hsl(0 0% 0% / 0.5), inset 0 1px 0 hsl(var(--primary) / 0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -105,7 +103,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(38 60% 56% / 0.4), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.4), transparent);
   }
 
   .glass-card-alt {
@@ -130,7 +128,7 @@
   .glass-card:hover,
   .glass-card-alt:hover {
     border-color: hsl(var(--primary) / 0.4);
-    box-shadow: 0 8px 32px hsl(var(--primary) / 0.18), inset 0 1px 0 hsl(38 60% 56% / 0.15);
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.18), inset 0 1px 0 hsl(var(--primary) / 0.15);
     transform: translateY(-2px);
   }
 
@@ -144,7 +142,7 @@
   }
 
   .section-light {
-    background: hsl(20 22% 13%);
+    background: hsl(var(--card-alt));
   }
 
   .section-dark {
@@ -159,23 +157,23 @@
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-base transition-all duration-300;
     font-family: 'DM Sans', system-ui, sans-serif;
-    background: linear-gradient(160deg, hsl(42 70% 62%), hsl(38 65% 54%), hsl(32 60% 44%));
-    color: hsl(18 30% 8%);
-    box-shadow: 0 4px 20px hsl(38 60% 40% / 0.45);
+    background: linear-gradient(160deg, hsl(48 91% 62%), hsl(var(--primary)), hsl(40 61% 30%));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.42);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 40px hsl(38 60% 50% / 0.55);
+    box-shadow: 0 8px 40px hsl(var(--primary) / 0.55);
     filter: brightness(1.08);
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-base transition-all duration-300;
     font-family: 'DM Sans', system-ui, sans-serif;
-    border: 1px solid hsl(36 25% 92% / 0.18);
+    border: 1px solid hsl(var(--foreground) / 0.18);
     color: hsl(var(--foreground));
-    background: hsl(22 18% 14% / 0.5);
+    background: hsl(var(--secondary) / 0.5);
     backdrop-filter: blur(12px);
   }
 
@@ -195,7 +193,7 @@
   }
 
   .text-gradient {
-    background: linear-gradient(160deg, hsl(44 75% 70%), hsl(38 65% 56%), hsl(32 55% 46%));
+    background: linear-gradient(160deg, hsl(48 91% 68%), hsl(var(--primary)), hsl(40 61% 30%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
