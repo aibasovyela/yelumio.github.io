@@ -3,6 +3,7 @@ import { useState } from "react";
 import { EnrollModal } from "@/components/EnrollModal";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
 import logo from "@/assets/logo.png";
 
 export const Header = () => {
@@ -38,7 +39,7 @@ export const Header = () => {
             <div className="hidden md:block">
               <button 
                 className="btn-primary py-2.5 px-6 text-sm"
-                onClick={() => setIsEnrollOpen(true)}
+                onClick={() => { trackEvent("enroll_click", { location: "header" }); document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" }); }}
               >
                 {t.header.enroll}
               </button>
@@ -56,7 +57,7 @@ export const Header = () => {
               <a href="#faq" className="block text-sm py-2 text-muted-foreground" onClick={() => setIsMenuOpen(false)}>{t.header.faq}</a>
               <button 
                 className="btn-primary w-full py-3 text-sm mt-4"
-                onClick={() => { setIsMenuOpen(false); setIsEnrollOpen(true); }}
+                onClick={() => { setIsMenuOpen(false); trackEvent("enroll_click", { location: "mobile_header" }); document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" }); }}
               >
                 {t.header.enroll}
               </button>

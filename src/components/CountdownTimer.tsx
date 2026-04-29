@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 
 interface CountdownTimerProps {
   targetDate: Date;
+  fallbackText?: string;
 }
 
-export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
+export const CountdownTimer = ({ targetDate, fallbackText = "Идёт набор на следующий поток — оставь заявку" }: CountdownTimerProps) => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(targetDate));
 
   useEffect(() => {
@@ -13,6 +14,10 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
     }, 1000);
     return () => clearInterval(timer);
   }, [targetDate]);
+
+  if (targetDate.getTime() <= Date.now()) {
+    return <p className="text-sm font-semibold text-primary">{fallbackText}</p>;
+  }
 
   return (
     <div className="flex items-center gap-3">

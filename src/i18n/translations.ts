@@ -18,6 +18,9 @@ export interface TranslationKeys {
     titleHighlight: string;
     titleSub: string;
     description: string;
+    audience: string;
+    valueBullets: string[];
+    trustedBy: string;
     enrollBtn: string;
     programBtn: string;
     idea: string;
@@ -62,6 +65,8 @@ export interface TranslationKeys {
     studioFooter: string;
     proFooter: string;
     priceLabel: string;
+    guaranteeTitle: string;
+    guaranteeText: string;
     basic: { features: string[]; priceKzt: string; priceRub: string };
     pro: { features: string[]; priceKzt: string; priceRub: string };
     elite: {
@@ -83,6 +88,12 @@ export interface TranslationKeys {
   footer: {
     brand: string;
     copyright: string;
+    contacts: string;
+    addressLabel: string;
+    address: string;
+    bin: string;
+    privacy: string;
+    offer: string;
   };
   // Sticky CTA
   stickyCta: {
@@ -102,6 +113,7 @@ export interface TranslationKeys {
     submitBtn: string;
     submitting: string;
     consent: string;
+    consentRequired: string;
     fillAll: string;
     fillAllDesc: string;
     success: string;
@@ -123,6 +135,9 @@ export interface TranslationKeys {
     submitBtn: string;
     submitting: string;
     consent: string;
+    consentRequired: string;
+    purposeLabel: string;
+    purposePlaceholder: string;
     nameError: string;
     phoneError: string;
     emailError: string;
@@ -162,14 +177,17 @@ const ru: TranslationKeys = {
     enroll: "Записаться",
   },
   hero: {
-    stream: "Поток 2",
-    startDate: "Начало 20 апреля",
+    stream: "Поток",
+    startDate: "Начало",
     title: "Как создавать продающий ",
     titleHighlight: "ИИ",
     titleSub: " контент?",
     description: "От идеи до первой продажи. Без студии, видеографа и бюджета.",
+    audience: "Для маркетологов, SMM-специалистов, дизайнеров, креаторов и владельцев бизнеса",
+    valueBullets: ["🎬 Готовое портфолио из 5+ ИИ-креативов", "💼 Реальный кейс для заказчиков", "🚀 Навык, за который платят 50–300 тыс. ₸ в месяц"],
+    trustedBy: "Уже работаем с",
     enrollBtn: "Записаться на курс",
-    programBtn: "Смотреть программу",
+    programBtn: "Посмотреть программу ↓",
     idea: "ИДЕЯ",
     photo: "ФОТО",
     video: "ВИДЕО",
@@ -184,7 +202,7 @@ const ru: TranslationKeys = {
   },
   courseProgram: {
     title: "Программа курса",
-    subtitle: "7 практических модулей: от идеи до готового кейса в портфолио",
+    subtitle: "1 вводный модуль + 7 практических: от идеи до готового кейса в портфолио",
     moduleLabel: "Модуль",
     whatYouLearn: "Что изучишь",
     result: "Результат",
@@ -242,8 +260,8 @@ const ru: TranslationKeys = {
     ],
   },
   pricing: {
-    title: "Выберите свой тариф",
-    subtitle: "Четыре формата обучения для разных целей и темпов",
+    title: "Выбери свой тариф",
+    subtitle: "Три формата обучения для разных целей и темпов",
     recommend: "Рекомендуем",
     premium: "Premium",
     choosePlan: "Выбрать",
@@ -253,6 +271,8 @@ const ru: TranslationKeys = {
     studioFooter: "Тем, кто хочет результат уровня студии, а не просто обучение.",
     proFooter: "Подходит тем, кто хочет максимум результата и личный разбор",
     priceLabel: "Стоимость",
+    guaranteeTitle: "Гарантия",
+    guaranteeText: "Если в течение 7 дней после старта поймёшь, что курс не подходит — вернём 100% оплаты.",
     basic: {
       features: ["Доступ ко всем 8 модулям", "5–6 часов видео", "Презентации и инструкции", "Домашние задания", "Проверка ДЗ", "Обратная связь по работам"],
       priceKzt: "120 000 ₸",
@@ -272,7 +292,7 @@ const ru: TranslationKeys = {
   },
   faq: {
     title: "Остались вопросы?",
-    description: "Готовы начать создавать профессиональные креативы с помощью ИИ? Записывайтесь на ближайший поток.",
+    description: "Готов начать создавать профессиональные креативы с помощью ИИ? Записывайся на ближайший поток.",
     enrollBtn: "Записаться на поток",
     questionBtn: "Задать вопрос",
     items: [
@@ -285,68 +305,78 @@ const ru: TranslationKeys = {
     ],
   },
   footer: {
-    brand: "ИИ-КРЕАТИВ",
-    copyright: "© 2025 ИИ-Креатив. Все права защищены.",
+    brand: "Yelumio",
+    copyright: "© 2026 Yelumio AI Studio. Все права защищены.",
+    contacts: "Контакты",
+    addressLabel: "Адрес",
+    address: "Yelumio AI Studio, Астана, Казахстан",
+    bin: "БИН/ИНН: уточняется",
+    privacy: "Политика конфиденциальности",
+    offer: "Публичная оферта",
   },
   stickyCta: {
-    startDate: "Старт курса 20 апреля",
+    startDate: "Старт курса",
     limited: "Количество мест ограничено",
     enrollBtn: "Записаться на курс",
   },
   enrollModal: {
     title: "Записаться на курс",
-    description: "Оставьте заявку и мы свяжемся с вами для уточнения деталей",
+    description: "Оставь заявку — мы свяжемся с тобой для уточнения деталей",
     nameLabel: "Имя",
-    namePlaceholder: "Введите имя",
+    namePlaceholder: "Введи имя",
     phoneLabel: "Номер телефона (WhatsApp)",
     phonePlaceholder: "+7 (___) ___-__-__",
-    selectTariff: "Выберите тариф",
+    selectTariff: "Выбери тариф",
     submitBtn: "Оставить заявку",
     submitting: "Отправка...",
-    consent: "Нажимая кнопку, вы соглашаетесь с обработкой персональных данных",
-    fillAll: "Заполните все поля",
-    fillAllDesc: "Пожалуйста, укажите имя, телефон и выберите тариф",
+    consent: "Соглашаюсь с обработкой персональных данных",
+    consentRequired: "Подтверди согласие на обработку персональных данных",
+    fillAll: "Заполни все поля",
+    fillAllDesc: "Пожалуйста, укажи имя, телефон и выбери тариф",
     success: "Заявка отправлена!",
-    successDesc: "Мы свяжемся с вами в ближайшее время",
+    successDesc: "Мы свяжемся с тобой в ближайшее время",
     error: "Ошибка отправки",
     errorDesc: "Попробуйте ещё раз или свяжитесь с нами напрямую",
   },
   pricingModal: {
     title: "Запись на тариф",
-    description: "Заполните данные для оформления",
+    description: "Заполни данные для оформления",
     selectedPlan: "Выбранный тариф",
     cost: "Стоимость",
     nameLabel: "Имя",
-    namePlaceholder: "Введите ваше имя",
+    namePlaceholder: "Введи своё имя",
     phoneLabel: "Номер телефона (WhatsApp)",
     emailLabel: "Email",
     emailPlaceholder: "email@example.com",
     submitBtn: "Оставить заявку",
     submitting: "Отправка...",
-    consent: "Нажимая кнопку, вы соглашаетесь с обработкой персональных данных",
-    nameError: "Введите ваше имя",
-    phoneError: "Введите корректный номер телефона",
-    emailError: "Введите корректный email",
+    consent: "Соглашаюсь с обработкой персональных данных",
+    consentRequired: "Подтверди согласие на обработку персональных данных",
+    purposeLabel: "Где ты хочешь применять ИИ?",
+    purposePlaceholder: "Например: видеопродакшн, маркетинг, дизайн...",
+    nameError: "Введи своё имя",
+    phoneError: "Введи корректный номер телефона",
+    emailError: "Введи корректный email",
     success: "Заявка отправлена!",
-    successDesc: "Мы свяжемся с вами в ближайшее время",
+    successDesc: "Мы свяжемся с тобой в ближайшее время",
     error: "Ошибка отправки",
     errorDesc: "Попробуйте ещё раз",
   },
   questionModal: {
     title: "Задать вопрос",
-    description: "Оставьте ваш вопрос и мы свяжемся с вами в ближайшее время",
+    description: "Оставь свой вопрос — мы свяжемся с тобой в ближайшее время",
     emailLabel: "Электронная почта",
     emailPlaceholder: "example@mail.com",
     phoneLabel: "Номер телефона",
     phonePlaceholder: "+7 (___) ___-__-__",
-    questionLabel: "Ваш вопрос",
-    questionPlaceholder: "Напишите ваш вопрос...",
+    questionLabel: "Твой вопрос",
+    questionPlaceholder: "Напиши свой вопрос...",
     submitBtn: "Отправить вопрос",
     submitting: "Отправка...",
-    fillAll: "Заполните все поля",
-    fillAllDesc: "Пожалуйста, заполните все обязательные поля",
+    fillAll: "Заполни все поля",
+    fillAllDesc: "Пожалуйста, заполни все обязательные поля",
     success: "Вопрос отправлен!",
-    successDesc: "Мы свяжемся с вами в ближайшее время",
+    successDesc: "Мы свяжемся с тобой в ближайшее время",
     error: "Ошибка отправки",
     errorDesc: "Попробуйте ещё раз или свяжитесь с нами напрямую",
   },
@@ -362,12 +392,15 @@ const kz: TranslationKeys = {
     enroll: "Жазылу",
   },
   hero: {
-    stream: "2-ағын",
-    startDate: "Басталуы 20 сәуір",
+    stream: "Ағын",
+    startDate: "Басталуы",
     title: "Керемет ",
     titleHighlight: "ЖИ",
     titleSub: " креативтер 1 айда. ",
     description: "Фото, видео, музыка және сөйлеу бойынша практикалық видеокурс. Үй тапсырмаларымен, жұмыстарды тексерумен және нақты кейстермен.",
+    audience: "Маркетологтарға, SMM мамандарына, дизайнерлерге, креаторларға және бизнес иелеріне",
+    valueBullets: ["🎬 5+ ЖИ-креативтен дайын портфолио", "💼 Тапсырыс берушілерге арналған нақты кейс", "🚀 Айына 50–300 мың ₸ төленетін дағды"],
+    trustedBy: "Бізбен жұмыс істейтіндер",
     enrollBtn: "Курсқа жазылу",
     programBtn: "Бағдарламаны көру",
     idea: "ИДЕЯ",
@@ -384,7 +417,7 @@ const kz: TranslationKeys = {
   },
   courseProgram: {
     title: "Курс бағдарламасы",
-    subtitle: "7 практикалық модуль: идеядан портфолиодағы дайын кейске дейін",
+    subtitle: "1 кіріспе модуль + 7 практикалық: идеядан портфолиодағы дайын кейске дейін",
     moduleLabel: "Модуль",
     whatYouLearn: "Не үйренесің",
     result: "Нәтиже",
@@ -453,6 +486,8 @@ const kz: TranslationKeys = {
     studioFooter: "Жай ғана оқу емес, студия деңгейіндегі нәтиже алғысы келетіндерге.",
     proFooter: "Максималды нәтиже мен жеке талдау алғысы келетіндерге сәйкес келеді",
     priceLabel: "Бағасы",
+    guaranteeTitle: "Кепілдік",
+    guaranteeText: "Басталғаннан кейін 7 күн ішінде курс сәйкес келмейтінін түсінсеңіз — төлемнің 100% қайтарамыз.",
     basic: {
       features: ["Барлық 8 модульге қол жетімділік", "5–6 сағат видео", "Презентациялар мен нұсқаулықтар", "Үй тапсырмалары", "ҮТ тексеру", "Жұмыстар бойынша кері байланыс"],
       priceKzt: "120 000 ₸",
@@ -485,11 +520,17 @@ const kz: TranslationKeys = {
     ],
   },
   footer: {
-    brand: "ЖИ-КРЕАТИВ",
-    copyright: "© 2025 ЖИ-Креатив. Барлық құқықтар қорғалған.",
+    brand: "Yelumio",
+    copyright: "© 2026 Yelumio AI Studio. Барлық құқықтар қорғалған.",
+    contacts: "Байланыс",
+    addressLabel: "Мекенжай",
+    address: "Yelumio AI Studio, Астана, Қазақстан",
+    bin: "БСН/ЖСН: нақтыланады",
+    privacy: "Құпиялылық саясаты",
+    offer: "Жария оферта",
   },
   stickyCta: {
-    startDate: "Курс 20 сәуірде басталады",
+    startDate: "Курс басталуы",
     limited: "Орын саны шектеулі",
     enrollBtn: "Курсқа жазылу",
   },
@@ -503,7 +544,8 @@ const kz: TranslationKeys = {
     selectTariff: "Тарифті таңдаңыз",
     submitBtn: "Өтінім қалдыру",
     submitting: "Жіберілуде...",
-    consent: "Түймені басу арқылы сіз жеке деректерді өңдеуге келісесіз",
+    consent: "Жеке деректерді өңдеуге келісемін",
+    consentRequired: "Жеке деректерді өңдеуге келісімді растаңыз",
     fillAll: "Барлық өрістерді толтырыңыз",
     fillAllDesc: "Атыңызды, телефон нөміріңізді көрсетіңіз және тарифті таңдаңыз",
     success: "Өтінім жіберілді!",
@@ -523,7 +565,10 @@ const kz: TranslationKeys = {
     emailPlaceholder: "email@example.com",
     submitBtn: "Өтінім қалдыру",
     submitting: "Жіберілуде...",
-    consent: "Түймені басу арқылы сіз жеке деректерді өңдеуге келісесіз",
+    consent: "Жеке деректерді өңдеуге келісемін",
+    consentRequired: "Жеке деректерді өңдеуге келісімді растаңыз",
+    purposeLabel: "ЖИ-ды қайда қолданғыңыз келеді?",
+    purposePlaceholder: "Мысалы: видеопродакшн, маркетинг, дизайн...",
     nameError: "Атыңызды енгізіңіз",
     phoneError: "Дұрыс телефон нөмірін енгізіңіз",
     emailError: "Дұрыс email енгізіңіз",
@@ -562,12 +607,15 @@ const en: TranslationKeys = {
     enroll: "Enroll",
   },
   hero: {
-    stream: "Batch 2",
-    startDate: "Starts April 20",
+    stream: "Batch",
+    startDate: "Starts",
     title: "Amazing ",
     titleHighlight: "AI",
     titleSub: " creatives in 1 month. ",
     description: "A practical video course on photo, video, music, and speech. With homework, work reviews, and real cases.",
+    audience: "For marketers, SMM specialists, designers, creators, and business owners",
+    valueBullets: ["🎬 A ready portfolio of 5+ AI creatives", "💼 A real case for clients", "🚀 A skill worth 50–300K ₸ per month"],
+    trustedBy: "Already working with",
     enrollBtn: "Enroll now",
     programBtn: "View program",
     idea: "IDEA",
@@ -584,7 +632,7 @@ const en: TranslationKeys = {
   },
   courseProgram: {
     title: "Course Program",
-    subtitle: "7 practical modules: from idea to a finished portfolio case",
+    subtitle: "1 intro module + 7 practical modules: from idea to a finished portfolio case",
     moduleLabel: "Module",
     whatYouLearn: "What you'll learn",
     result: "Result",
@@ -653,6 +701,8 @@ const en: TranslationKeys = {
     studioFooter: "For those who want studio-level results, not just training.",
     proFooter: "For those who want maximum results and personal reviews",
     priceLabel: "Price",
+    guaranteeTitle: "Guarantee",
+    guaranteeText: "If within 7 days after the start you realize the course is not right for you, we will refund 100% of your payment.",
     basic: {
       features: ["Access to all 8 modules", "5–6 hours of video", "Presentations and guides", "Homework assignments", "Homework review", "Work feedback"],
       priceKzt: "120,000 ₸",
@@ -685,11 +735,17 @@ const en: TranslationKeys = {
     ],
   },
   footer: {
-    brand: "AI-CREATIVE",
-    copyright: "© 2025 AI-Creative. All rights reserved.",
+    brand: "Yelumio",
+    copyright: "© 2026 Yelumio AI Studio. All rights reserved.",
+    contacts: "Contacts",
+    addressLabel: "Address",
+    address: "Yelumio AI Studio, Astana, Kazakhstan",
+    bin: "BIN/IIN: to be confirmed",
+    privacy: "Privacy Policy",
+    offer: "Public Offer",
   },
   stickyCta: {
-    startDate: "Course starts April 20",
+    startDate: "Course starts",
     limited: "Limited spots available",
     enrollBtn: "Enroll now",
   },
@@ -703,7 +759,8 @@ const en: TranslationKeys = {
     selectTariff: "Select a plan",
     submitBtn: "Submit request",
     submitting: "Sending...",
-    consent: "By clicking the button, you agree to personal data processing",
+    consent: "I agree to personal data processing",
+    consentRequired: "Please confirm personal data processing consent",
     fillAll: "Fill in all fields",
     fillAllDesc: "Please enter your name, phone number, and select a plan",
     success: "Request sent!",
@@ -723,7 +780,10 @@ const en: TranslationKeys = {
     emailPlaceholder: "email@example.com",
     submitBtn: "Submit request",
     submitting: "Sending...",
-    consent: "By clicking the button, you agree to personal data processing",
+    consent: "I agree to personal data processing",
+    consentRequired: "Please confirm personal data processing consent",
+    purposeLabel: "Where do you want to use AI?",
+    purposePlaceholder: "For example: video production, marketing, design...",
     nameError: "Enter your name",
     phoneError: "Enter a valid phone number",
     emailError: "Enter a valid email",
