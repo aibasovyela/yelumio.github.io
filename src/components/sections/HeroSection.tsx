@@ -26,14 +26,14 @@ export const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 30%, hsl(38 60% 40% / 0.18) 0%, transparent 55%), radial-gradient(ellipse at 50% 100%, hsl(0 0% 0% / 0.6) 0%, transparent 60%)",
+            "radial-gradient(ellipse at 50% 30%, hsl(var(--primary) / 0.18) 0%, transparent 55%), radial-gradient(ellipse at 50% 100%, hsl(0 0% 0% / 0.6) 0%, transparent 60%)",
         }}
       />
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-overlay"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(0deg, hsl(38 60% 56%) 0, hsl(38 60% 56%) 1px, transparent 1px, transparent 3px)",
+            "repeating-linear-gradient(0deg, hsl(var(--primary)) 0, hsl(var(--primary)) 1px, transparent 1px, transparent 3px)",
         }}
       />
 
