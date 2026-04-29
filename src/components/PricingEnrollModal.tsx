@@ -70,7 +70,7 @@ export const PricingEnrollModal = ({ open, onOpenChange, planName, planPrice }: 
   };
 
   const getPlanColor = () => {
-    if (planName === "ELITE / Studio") return "text-[#9ab800]";
+    if (planName === "ELITE / Studio") return "text-primary";
     if (planName === "PRO / Mentor") return "text-primary";
     return "text-foreground";
   };
