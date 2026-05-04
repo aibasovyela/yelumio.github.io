@@ -7,6 +7,8 @@ interface CaseItem {
   description: string;
   result: string;
   mediaSrc: string;
+  videoSrc?: string;
+  posterSrc?: string;
 }
 
 const cases: CaseItem[] = [
@@ -18,11 +20,13 @@ const cases: CaseItem[] = [
     mediaSrc: "/brands/sontery.svg",
   },
   {
-    brand: "RUMI Catering",
+    brand: "RUMI",
     category: "Food & event creatives",
     description: "Визуальная упаковка кейтеринга: аппетитные сцены, настроение события и рекламные материалы для соцсетей.",
     result: "Быстрая генерация концептов для разных поводов и аудиторий.",
     mediaSrc: "/brands/rumi.svg",
+    videoSrc: "/cases/rumi.mp4",
+    posterSrc: "/cases/rumi-poster.jpg",
   },
   {
     brand: "Shoqan",
@@ -59,8 +63,23 @@ export const StudentCasesSection = () => {
           {cases.map((item, idx) => (
             <ScrollReveal key={item.brand} delay={idx * 100}>
               <article className="rounded-2xl border border-border bg-card overflow-hidden h-full">
-                <div className="min-h-[180px] bg-primary/5 border-b border-border flex items-center justify-center p-8">
-                  <img src={item.mediaSrc} alt={`${item.brand} logo`} className="h-12 w-auto opacity-80" loading="lazy" />
+                <div className="bg-primary/5 border-b border-border flex items-center justify-center overflow-hidden" style={{ aspectRatio: item.videoSrc ? "9 / 16" : undefined, minHeight: item.videoSrc ? undefined : 180 }}>
+                  {item.videoSrc ? (
+                    <video
+                      src={item.videoSrc}
+                      poster={item.posterSrc}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="p-8">
+                      <img src={item.mediaSrc} alt={`${item.brand} logo`} className="h-12 w-auto opacity-80" loading="lazy" />
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 md:p-8 space-y-4">
                   <div>
