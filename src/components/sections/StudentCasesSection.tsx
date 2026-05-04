@@ -1,14 +1,18 @@
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { ExternalLink } from "lucide-react";
 
+interface CaseVideo {
+  src: string;
+  poster?: string;
+}
+
 interface CaseItem {
   brand: string;
   category: string;
   description: string;
   result: string;
   mediaSrc: string;
-  videoSrc?: string;
-  posterSrc?: string;
+  videos?: CaseVideo[];
 }
 
 const cases: CaseItem[] = [
@@ -25,6 +29,11 @@ const cases: CaseItem[] = [
     description: "Визуальная упаковка кейтеринга: аппетитные сцены, настроение события и рекламные материалы для соцсетей.",
     result: "Быстрая генерация концептов для разных поводов и аудиторий.",
     mediaSrc: "/brands/rumi.svg",
+    videos: [
+      { src: "/cases/rumi.mp4", poster: "/cases/rumi-poster.jpg" },
+      { src: "/cases/v2.mp4", poster: "/cases/v2-poster.jpg" },
+      { src: "/cases/v3.mp4", poster: "/cases/v3-poster.jpg" },
+    ],
   },
   {
     brand: "Shoqan",
@@ -57,46 +66,29 @@ export const StudentCasesSection = () => {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal>
-          <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-6xl mx-auto mb-10">
-            {[
-              { src: "/cases/rumi.mp4", poster: "/cases/rumi-poster.jpg" },
-              { src: "/cases/v2.mp4", poster: "/cases/v2-poster.jpg" },
-              { src: "/cases/v3.mp4", poster: "/cases/v3-poster.jpg" },
-            ].map((v) => (
-              <video
-                key={v.src}
-                src={v.src}
-                poster={v.poster}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full aspect-[9/16] object-cover rounded-2xl border border-border bg-primary/5"
-              />
-            ))}
-          </div>
-        </ScrollReveal>
-
         <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {cases.map((item, idx) => (
             <ScrollReveal key={item.brand} delay={idx * 100}>
               <article className="rounded-2xl border border-border bg-card overflow-hidden h-full">
-                <div className="bg-primary/5 border-b border-border flex items-center justify-center overflow-hidden p-4" style={{ minHeight: 180 }}>
-                  {item.videoSrc ? (
-                    <video
-                      src={item.videoSrc}
-                      poster={item.posterSrc}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="h-[260px] w-auto rounded-xl object-cover"
-                    />
+                <div className="bg-primary/5 border-b border-border p-4">
+                  {item.videos && item.videos.length > 0 ? (
+                    <div className="grid grid-cols-3 gap-2">
+                      {item.videos.map((v) => (
+                        <video
+                          key={v.src}
+                          src={v.src}
+                          poster={v.poster}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                          className="w-full aspect-[9/16] object-cover rounded-lg bg-background"
+                        />
+                      ))}
+                    </div>
                   ) : (
-                    <div className="p-4">
+                    <div className="flex items-center justify-center" style={{ minHeight: 180 }}>
                       <img src={item.mediaSrc} alt={`${item.brand} logo`} className="h-12 w-auto opacity-80" loading="lazy" />
                     </div>
                   )}
