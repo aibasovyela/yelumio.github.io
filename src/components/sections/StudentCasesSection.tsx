@@ -17,11 +17,16 @@ interface CaseItem {
 
 const cases: CaseItem[] = [
   {
-    brand: "Sontery",
-    category: "AI-визуалы для продукта",
-    description: "Сцены для матрасов и товаров сна: чистый свет, премиальная подача, быстрые варианты под рекламные форматы.",
-    result: "Продуктовые кадры без аренды студии и сложного продакшна.",
+    brand: "Bambino",
+    category: "ИИ-сцены для видео-рекламы",
+    description: "Сцены для видео-рекламы протеинового мороженого: яркая подача продукта, аппетитные кадры и быстрые варианты под рекламные форматы.",
+    result: "Готовые рекламные сцены без съёмок и сложного продакшна.",
     mediaSrc: "/brands/sontery.svg",
+    videos: [
+      { src: "/cases/b1.mp4", poster: "/cases/b1-poster.jpg" },
+      { src: "/cases/b2.mp4", poster: "/cases/b2-poster.jpg" },
+      { src: "/cases/b3.mp4", poster: "/cases/b3-poster.jpg" },
+    ],
   },
   {
     brand: "RUMI",
@@ -36,11 +41,16 @@ const cases: CaseItem[] = [
     ],
   },
   {
-    brand: "Shoqan",
-    category: "Fashion visuals",
-    description: "Креативы для fashion-подачи: кадры с атмосферой бренда, фокусом на форме, материале и визуальном сторителлинге.",
-    result: "Контент, который выглядит как съёмка, но собирается быстрее.",
+    brand: "Личный бренд врача",
+    category: "Анимированные ролики",
+    description: "Анимированные видео-ролики для врача, который специализируется на питании для детей: понятный визуал, доверие и узнаваемость в соцсетях.",
+    result: "Стабильный поток контента для личного бренда без съёмочной команды.",
     mediaSrc: "/brands/shoqan.svg",
+    videos: [
+      { src: "/cases/d1.mp4", poster: "/cases/d1-poster.jpg" },
+      { src: "/cases/d2.mp4", poster: "/cases/d2-poster.jpg" },
+      { src: "/cases/d3.mp4", poster: "/cases/d3-poster.jpg" },
+    ],
   },
   {
     brand: "DALA",
