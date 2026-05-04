@@ -7,7 +7,7 @@ import { trackSectionView } from "@/lib/analytics";
 const CourseProgramSection = lazy(() => import("@/components/sections/CourseProgramSection").then(m => ({ default: m.CourseProgramSection })));
 const ShowcaseSection = lazy(() => import("@/components/sections/ShowcaseSection").then(m => ({ default: m.ShowcaseSection })));
 const StudentCasesSection = lazy(() => import("@/components/sections/StudentCasesSection").then(m => ({ default: m.StudentCasesSection })));
-const BrandsSection = lazy(() => import("@/components/sections/BrandsSection").then(m => ({ default: m.BrandsSection })));
+
 const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(m => ({ default: m.PricingSection })));
 const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
 const InstagramSection = lazy(() => import("@/components/sections/InstagramSection").then(m => ({ default: m.InstagramSection })));
@@ -39,10 +39,6 @@ const Index = () => {
           <Suspense fallback={<SectionFallback />}>
             {/* Showcase: archived */}
 
-            {/* Brands: white narrow strip */}
-            <div className="section-white">
-              <BrandsSection />
-            </div>
 
             {/* Program: beige */}
             <div id="program" className="section-beige">

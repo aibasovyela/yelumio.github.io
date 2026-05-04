@@ -6,7 +6,7 @@ import { trackEvent } from "@/lib/analytics";
 import authorPhoto from "@/assets/author-photo.png";
 import authorPhotoWebp from "@/assets/author-photo.webp";
 
-const trustedBrands = ["Sontery", "Kaspi", "RUMI", "DALA", "Shoqan"];
+const trustedBrands = ["Bambino", "RUMI", "Личный бренд врача", "Niette"];
 
 export const HeroSection = () => {
   const { t, language } = useLanguage();
