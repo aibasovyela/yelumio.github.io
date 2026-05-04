@@ -25,8 +25,6 @@ const cases: CaseItem[] = [
     description: "Визуальная упаковка кейтеринга: аппетитные сцены, настроение события и рекламные материалы для соцсетей.",
     result: "Быстрая генерация концептов для разных поводов и аудиторий.",
     mediaSrc: "/brands/rumi.svg",
-    videoSrc: "/cases/rumi.mp4",
-    posterSrc: "/cases/rumi-poster.jpg",
   },
   {
     brand: "Shoqan",
@@ -56,6 +54,28 @@ export const StudentCasesSection = () => {
             <p className="text-lg text-muted-foreground">
               Наши работы
             </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="grid grid-cols-3 gap-3 md:gap-6 max-w-6xl mx-auto mb-10">
+            {[
+              { src: "/cases/rumi.mp4", poster: "/cases/rumi-poster.jpg" },
+              { src: "/cases/v2.mp4", poster: "/cases/v2-poster.jpg" },
+              { src: "/cases/v3.mp4", poster: "/cases/v3-poster.jpg" },
+            ].map((v) => (
+              <video
+                key={v.src}
+                src={v.src}
+                poster={v.poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full aspect-[9/16] object-cover rounded-2xl border border-border bg-primary/5"
+              />
+            ))}
           </div>
         </ScrollReveal>
 
