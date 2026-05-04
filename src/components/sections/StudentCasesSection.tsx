@@ -53,11 +53,16 @@ const cases: CaseItem[] = [
     ],
   },
   {
-    brand: "DALA",
-    category: "Brand storytelling",
-    description: "Сценарии и визуальные направления для бренда: от идеи до кадров, которые можно адаптировать под рекламу.",
-    result: "Единая эстетика для серии креативов и презентаций.",
+    brand: "Niette",
+    category: "Качественные подгузники с миссией",
+    description: "Бренд премиальных подгузников, который отдаёт 50% прибыли на благотворительность. Мы создаём визуальный контент, который передаёт заботу, мягкость и ценности бренда.",
+    result: "Тёплая визуальная коммуникация, которая поддерживает миссию бренда.",
     mediaSrc: "/brands/dala.svg",
+    videos: [
+      { src: "/cases/n1.mp4", poster: "/cases/n1-poster.jpg" },
+      { src: "/cases/n2.mp4", poster: "/cases/n2-poster.jpg" },
+      { src: "/cases/n3.mp4", poster: "/cases/n3-poster.jpg" },
+    ],
   },
 ];
 
