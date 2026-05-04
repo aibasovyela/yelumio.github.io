@@ -1,10 +1,10 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { BookOpen, Pencil, CheckCircle, Lightbulb, MessageSquareText, Camera, Video, Music, Package, Briefcase } from "lucide-react";
+import { BookOpen, Pencil, CheckCircle, Lightbulb, MessageSquareText, Camera, Video, Music, Package, Briefcase, Sparkles } from "lucide-react";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const moduleIcons = [Lightbulb, MessageSquareText, Camera, Video, Music, Package, Briefcase];
-const moduleNumbers = ["01", "02", "03", "04", "05", "06", "07"];
+const moduleIcons = [Lightbulb, MessageSquareText, Camera, Video, Music, Package, Briefcase, Sparkles];
+const moduleNumbers = ["01", "02", "03", "04", "05", "06", "07", "BONUS"];
 
 export const CourseProgramSection = () => {
   const { t } = useLanguage();
@@ -28,15 +28,32 @@ export const CourseProgramSection = () => {
             <Accordion type="single" collapsible className="space-y-4">
               {t.courseProgram.modules.map((module, index) => {
                 const IconComponent = moduleIcons[index];
+                const isBonus = index === t.courseProgram.modules.length - 1;
                 return (
-                  <AccordionItem key={index} value={`module-${index}`} className="rounded-2xl px-6 border bg-card border-border shadow-[0_4px_24px_hsl(0_0%_0%/0.4)] text-foreground data-[state=open]:border-primary/50 data-[state=open]:shadow-[0_8px_40px_hsl(var(--primary)/0.25)] transition-all duration-300">
+                  <AccordionItem
+                    key={index}
+                    value={`module-${index}`}
+                    className={
+                      isBonus
+                        ? "rounded-2xl px-6 border bg-accent/10 border-accent/40 shadow-[0_8px_32px_hsl(var(--accent)/0.25)] text-foreground data-[state=open]:border-accent/70 data-[state=open]:shadow-[0_10px_44px_hsl(var(--accent)/0.35)] transition-all duration-300"
+                        : "rounded-2xl px-6 border bg-card border-border shadow-[0_4px_24px_hsl(0_0%_0%/0.4)] text-foreground data-[state=open]:border-primary/50 data-[state=open]:shadow-[0_8px_40px_hsl(var(--primary)/0.25)] transition-all duration-300"
+                    }
+                  >
                     <AccordionTrigger className="hover:no-underline py-6">
                       <div className="flex items-center gap-4 text-left">
-                        <div className="w-12 h-12 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center flex-shrink-0">
-                          <IconComponent size={22} className="text-primary" strokeWidth={1.5} />
+                        <div
+                          className={
+                            isBonus
+                              ? "w-12 h-12 rounded-xl bg-accent/20 border border-accent/40 flex items-center justify-center flex-shrink-0"
+                              : "w-12 h-12 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center flex-shrink-0"
+                          }
+                        >
+                          <IconComponent size={22} className={isBonus ? "text-accent" : "text-primary"} strokeWidth={1.5} />
                         </div>
                         <div>
-                          <span className="mono-label">{t.courseProgram.moduleLabel} {moduleNumbers[index]}</span>
+                          <span className={isBonus ? "mono-label !text-accent" : "mono-label"}>
+                            {isBonus ? t.courseProgram.bonusLabel : `${t.courseProgram.moduleLabel} ${moduleNumbers[index]}`}
+                          </span>
                           <p className="text-lg font-semibold text-foreground">{module.title}</p>
                         </div>
                       </div>

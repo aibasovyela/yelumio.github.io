@@ -41,6 +41,7 @@ export interface TranslationKeys {
     title: string;
     subtitle: string;
     moduleLabel: string;
+    bonusLabel: string;
     whatYouLearn: string;
     result: string;
     homework: string;
@@ -204,6 +205,7 @@ const ru: TranslationKeys = {
     title: "Программа курса",
     subtitle: "1 вводный модуль + 7 практических: от идеи до готового кейса в портфолио",
     moduleLabel: "Модуль",
+    bonusLabel: "Бонусный модуль",
     whatYouLearn: "Что изучишь",
     result: "Результат",
     homework: "Домашнее задание",
@@ -256,6 +258,13 @@ const ru: TranslationKeys = {
         learn: ["Как оформить свою страницу или портфолио", "Какую презентацию подготовить", "Как показать свою работу заказчику", "Как оформлять кейсы", "Как презентовать результат", "Как использовать навык для заработка"],
         result: "Понимание, как применять полученные навыки в реальной жизни.",
         homework: ["Оформить кейс", "Подготовить презентацию своей работы"],
+      },
+      {
+        title: "Бонус: ИИ-инструменты для бизнеса и автоматизации",
+        description: "Дополнительный модуль сверх программы — про то, как ИИ помогает экономить время, автоматизировать процессы и создавать продукты.",
+        learn: ["Как создавать Telegram-ботов с помощью ИИ", "Как правильно пользоваться Claude и выжимать из него максимум", "Как создавать сайты с помощью ИИ", "Как автоматизировать и структурировать работу через Claude", "Как и где правильно создавать ИИ-аватары"],
+        result: "У тебя есть набор продвинутых ИИ-инструментов для бизнеса, контента и личных проектов.",
+        homework: ["Собрать своего Telegram-бота или ИИ-аватар", "Применить Claude для автоматизации одной своей задачи"],
       },
     ],
   },
@@ -419,6 +428,7 @@ const kz: TranslationKeys = {
     title: "Курс бағдарламасы",
     subtitle: "1 кіріспе модуль + 7 практикалық: идеядан портфолиодағы дайын кейске дейін",
     moduleLabel: "Модуль",
+    bonusLabel: "Бонустық модуль",
     whatYouLearn: "Не үйренесің",
     result: "Нәтиже",
     homework: "Үй тапсырмасы",
@@ -471,6 +481,13 @@ const kz: TranslationKeys = {
         learn: ["Өз бетіңізді немесе портфолиоңызды қалай рәсімдеу керек", "Қандай презентация дайындау керек", "Жұмысыңызды тапсырыс берушіге қалай көрсету керек", "Кейстерді қалай рәсімдеу керек", "Нәтижені қалай презентациялау керек", "Дағдыны табыс табу үшін қалай пайдалану керек"],
         result: "Алған дағдыларды нақты өмірде қалай қолдануды түсіну.",
         homework: ["Кейсті рәсімдеу", "Жұмысыңыздың презентациясын дайындау"],
+      },
+      {
+        title: "Бонус: бизнес пен автоматтандыруға арналған ЖИ-құралдар",
+        description: "Бағдарламадан тыс қосымша модуль — ЖИ уақытты үнемдеуге, процестерді автоматтандыруға және өнімдер жасауға қалай көмектесетіні туралы.",
+        learn: ["ЖИ көмегімен Telegram-бот жасау", "Claude-ты дұрыс пайдалану және одан максимум алу", "ЖИ көмегімен сайттар жасау", "Claude арқылы жұмысты автоматтандыру және құрылымдау", "ЖИ-аватарларды қалай және қайда дұрыс жасау керек"],
+        result: "Бизнеске, контентке және жеке жобаларға арналған озық ЖИ-құралдар жинағы пайда болады.",
+        homework: ["Өз Telegram-ботыңды немесе ЖИ-аватарыңды құрастыру", "Бір тапсырманы автоматтандыру үшін Claude қолдану"],
       },
     ],
   },
@@ -634,6 +651,7 @@ const en: TranslationKeys = {
     title: "Course Program",
     subtitle: "1 intro module + 7 practical modules: from idea to a finished portfolio case",
     moduleLabel: "Module",
+    bonusLabel: "Bonus module",
     whatYouLearn: "What you'll learn",
     result: "Result",
     homework: "Homework",
@@ -686,6 +704,13 @@ const en: TranslationKeys = {
         learn: ["How to set up your page or portfolio", "What presentation to prepare", "How to show your work to a client", "How to format cases", "How to present results", "How to use the skill to earn money"],
         result: "Understanding how to apply acquired skills in real life.",
         homework: ["Format a case", "Prepare a presentation of your work"],
+      },
+      {
+        title: "Bonus: AI tools for business & automation",
+        description: "An extra module beyond the program — how AI helps you save time, automate processes, and build products.",
+        learn: ["How to build Telegram bots with AI", "How to use Claude properly and get the most out of it", "How to build websites with AI", "How to automate and structure work with Claude", "How and where to properly create AI avatars"],
+        result: "You have a set of advanced AI tools for business, content, and personal projects.",
+        homework: ["Build your own Telegram bot or AI avatar", "Use Claude to automate one of your tasks"],
       },
     ],
   },
