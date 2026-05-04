@@ -4,7 +4,6 @@ import { StickyCTA } from "@/components/StickyCTA";
 import { lazy, Suspense, useEffect } from "react";
 import { trackSectionView } from "@/lib/analytics";
 
-const Module0Section = lazy(() => import("@/components/sections/Module0Section").then(m => ({ default: m.Module0Section })));
 const CourseProgramSection = lazy(() => import("@/components/sections/CourseProgramSection").then(m => ({ default: m.CourseProgramSection })));
 const ShowcaseSection = lazy(() => import("@/components/sections/ShowcaseSection").then(m => ({ default: m.ShowcaseSection })));
 const StudentCasesSection = lazy(() => import("@/components/sections/StudentCasesSection").then(m => ({ default: m.StudentCasesSection })));
@@ -47,7 +46,6 @@ const Index = () => {
 
             {/* Program: beige */}
             <div id="program" className="section-beige">
-              <Module0Section />
               <CourseProgramSection />
             </div>
 
