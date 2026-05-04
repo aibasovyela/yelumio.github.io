@@ -25,8 +25,6 @@ const cases: CaseItem[] = [
     description: "Визуальная упаковка кейтеринга: аппетитные сцены, настроение события и рекламные материалы для соцсетей.",
     result: "Быстрая генерация концептов для разных поводов и аудиторий.",
     mediaSrc: "/brands/rumi.svg",
-    videoSrc: "/cases/rumi.mp4",
-    posterSrc: "/cases/rumi-poster.jpg",
   },
   {
     brand: "Shoqan",
