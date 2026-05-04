@@ -8,7 +8,7 @@ interface Brand {
 export const brands: Brand[] = [
   { name: "Sontery (Askona)", logoSrc: "/brands/sontery.svg" },
   { name: "Kaspi", logoSrc: "/brands/kaspi.svg" },
-  { name: "RUMI Catering", logoSrc: "/brands/rumi.svg" },
+  { name: "RUMI", logoSrc: "/brands/rumi.svg" },
   { name: "Bairam Üly", logoSrc: "/brands/bairam.svg" },
   { name: "DALA", logoSrc: "/brands/dala.svg" },
   { name: "Shoqan", logoSrc: "/brands/shoqan.svg" },
