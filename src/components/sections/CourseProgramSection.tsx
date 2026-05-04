@@ -1,10 +1,10 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { BookOpen, Pencil, CheckCircle, Lightbulb, MessageSquareText, Camera, Video, Music, Package, Briefcase } from "lucide-react";
+import { BookOpen, Pencil, CheckCircle, Lightbulb, MessageSquareText, Camera, Video, Music, Package, Briefcase, Sparkles } from "lucide-react";
 import { ScrollReveal } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const moduleIcons = [Lightbulb, MessageSquareText, Camera, Video, Music, Package, Briefcase];
-const moduleNumbers = ["01", "02", "03", "04", "05", "06", "07"];
+const moduleIcons = [Lightbulb, MessageSquareText, Camera, Video, Music, Package, Briefcase, Sparkles];
+const moduleNumbers = ["01", "02", "03", "04", "05", "06", "07", "BONUS"];
 
 export const CourseProgramSection = () => {
   const { t } = useLanguage();
