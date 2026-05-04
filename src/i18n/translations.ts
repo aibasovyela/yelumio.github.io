@@ -41,6 +41,7 @@ export interface TranslationKeys {
     title: string;
     subtitle: string;
     moduleLabel: string;
+    bonusLabel: string;
     whatYouLearn: string;
     result: string;
     homework: string;
