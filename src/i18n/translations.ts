@@ -482,6 +482,13 @@ const kz: TranslationKeys = {
         result: "Алған дағдыларды нақты өмірде қалай қолдануды түсіну.",
         homework: ["Кейсті рәсімдеу", "Жұмысыңыздың презентациясын дайындау"],
       },
+      {
+        title: "Бонус: бизнес пен автоматтандыруға арналған ЖИ-құралдар",
+        description: "Бағдарламадан тыс қосымша модуль — ЖИ уақытты үнемдеуге, процестерді автоматтандыруға және өнімдер жасауға қалай көмектесетіні туралы.",
+        learn: ["ЖИ көмегімен Telegram-бот жасау", "Claude-ты дұрыс пайдалану және одан максимум алу", "ЖИ көмегімен сайттар жасау", "Claude арқылы жұмысты автоматтандыру және құрылымдау", "ЖИ-аватарларды қалай және қайда дұрыс жасау керек"],
+        result: "Бизнеске, контентке және жеке жобаларға арналған озық ЖИ-құралдар жинағы пайда болады.",
+        homework: ["Өз Telegram-ботыңды немесе ЖИ-аватарыңды құрастыру", "Бір тапсырманы автоматтандыру үшін Claude қолдану"],
+      },
     ],
   },
   pricing: {
@@ -697,6 +704,13 @@ const en: TranslationKeys = {
         learn: ["How to set up your page or portfolio", "What presentation to prepare", "How to show your work to a client", "How to format cases", "How to present results", "How to use the skill to earn money"],
         result: "Understanding how to apply acquired skills in real life.",
         homework: ["Format a case", "Prepare a presentation of your work"],
+      },
+      {
+        title: "Bonus: AI tools for business & automation",
+        description: "An extra module beyond the program — how AI helps you save time, automate processes, and build products.",
+        learn: ["How to build Telegram bots with AI", "How to use Claude properly and get the most out of it", "How to build websites with AI", "How to automate and structure work with Claude", "How and where to properly create AI avatars"],
+        result: "You have a set of advanced AI tools for business, content, and personal projects.",
+        homework: ["Build your own Telegram bot or AI avatar", "Use Claude to automate one of your tasks"],
       },
     ],
   },
