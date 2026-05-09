@@ -15,7 +15,7 @@ interface QuestionModalProps {
 }
 
 export const QuestionModal = ({ open, onOpenChange }: QuestionModalProps) => {
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [question, setQuestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,7 +25,7 @@ export const QuestionModal = ({ open, onOpenChange }: QuestionModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email.trim() || !phone.trim() || !question.trim()) {
+    if (!name.trim() || !phone.trim() || !question.trim()) {
       toast({ title: t.questionModal.fillAll, description: t.questionModal.fillAllDesc, variant: "destructive" });
       return;
     }
@@ -34,13 +34,13 @@ export const QuestionModal = ({ open, onOpenChange }: QuestionModalProps) => {
 
     try {
       const { error } = await supabase.functions.invoke("send-to-telegram", {
-        body: { type: "question", email, phone, question },
+        body: { type: "question", name, phone, question },
       });
 
       if (error) throw error;
 
       toast({ title: t.questionModal.success, description: t.questionModal.successDesc });
-      setEmail("");
+      setName("");
       setPhone("");
       setQuestion("");
       onOpenChange(false);
@@ -62,8 +62,8 @@ export const QuestionModal = ({ open, onOpenChange }: QuestionModalProps) => {
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div className="space-y-2">
-            <Label htmlFor="email">{t.questionModal.emailLabel}</Label>
-            <Input id="email" type="email" placeholder={t.questionModal.emailPlaceholder} value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <Label htmlFor="q-name">{t.questionModal.nameLabel}</Label>
+            <Input id="q-name" type="text" placeholder={t.questionModal.namePlaceholder} value={name} onChange={(e) => setName(e.target.value)} required />
           </div>
 
           <div className="space-y-2">

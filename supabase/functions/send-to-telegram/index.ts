@@ -59,10 +59,10 @@ const handler = async (req: Request): Promise<Response> => {
       const plan = sanitize(data.plan, 100, 'Не выбран');
       message = `🎓 *Новая заявка на курс*\n\n👤 Имя: ${name}\n📞 Телефон: ${contact}\n📋 Тариф: ${plan}`;
     } else if (data.type === 'question') {
-      const email = sanitize(data.email, 255, 'Не указан');
+      const name = sanitize(data.name, 100, 'Не указано');
       const phone = sanitize(data.phone, 20, 'Не указан');
       const question = sanitize(data.question, 1000, 'Не указан');
-      message = `❓ *Новый вопрос*\n\n📧 Email: ${email}\n📞 Телефон: ${phone}\n\n💬 Вопрос:\n${question}`;
+      message = `❓ *Новый вопрос*\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n\n💬 Вопрос:\n${question}`;
     } else if (data.type === 'pricing') {
       const name = sanitize(data.name, 100, 'Не указано');
       const email = sanitize(data.email, 255, 'Не указан');

@@ -151,8 +151,8 @@ export interface TranslationKeys {
   questionModal: {
     title: string;
     description: string;
-    emailLabel: string;
-    emailPlaceholder: string;
+    nameLabel: string;
+    namePlaceholder: string;
     phoneLabel: string;
     phonePlaceholder: string;
     questionLabel: string;
@@ -374,8 +374,8 @@ const ru: TranslationKeys = {
   questionModal: {
     title: "Задать вопрос",
     description: "Оставь свой вопрос — мы свяжемся с тобой в ближайшее время",
-    emailLabel: "Электронная почта",
-    emailPlaceholder: "example@mail.com",
+    nameLabel: "Имя",
+    namePlaceholder: "Как к вам обращаться",
     phoneLabel: "Номер телефона",
     phonePlaceholder: "+7 (___) ___-__-__",
     questionLabel: "Твой вопрос",
@@ -597,8 +597,8 @@ const kz: TranslationKeys = {
   questionModal: {
     title: "Сұрақ қою",
     description: "Сұрағыңызды қалдырыңыз, біз сізбен жақын арада хабарласамыз",
-    emailLabel: "Электронды пошта",
-    emailPlaceholder: "example@mail.com",
+    nameLabel: "Атыңыз",
+    namePlaceholder: "Сізге қалай жүгінуге болады",
     phoneLabel: "Телефон нөмірі",
     phonePlaceholder: "+7 (___) ___-__-__",
     questionLabel: "Сіздің сұрағыңыз",
@@ -820,8 +820,8 @@ const en: TranslationKeys = {
   questionModal: {
     title: "Ask a question",
     description: "Leave your question and we'll contact you shortly",
-    emailLabel: "Email",
-    emailPlaceholder: "example@mail.com",
+    nameLabel: "Name",
+    namePlaceholder: "How should we address you",
     phoneLabel: "Phone number",
     phonePlaceholder: "+7 (___) ___-__-__",
     questionLabel: "Your question",
