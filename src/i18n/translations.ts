@@ -284,19 +284,19 @@ const ru: TranslationKeys = {
     guaranteeText: "Если в течение 7 дней после старта поймёшь, что курс не подходит — вернём 100% оплаты.",
     basic: {
       features: ["Доступ ко всем 8 модулям", "5–6 часов видео", "Презентации и инструкции", "Домашние задания", "Проверка ДЗ", "Обратная связь по работам"],
-      priceKzt: "120 000 ₸",
-      priceRub: "≈ 21 800 ₽",
+      priceKzt: "90 000 ₸",
+      priceRub: "≈ 16 400 ₽",
     },
     pro: {
       features: ["Всё из тарифа Basic", "Личное участие автора курса", "Разбор каждого креатива", "Детальная работа с кадрами, светом, движением", "Ускоренный рост и глубина"],
-      priceKzt: "200 000 ₸",
-      priceRub: "≈ 36 400 ₽",
+      priceKzt: "150 000 ₸",
+      priceRub: "≈ 27 300 ₽",
     },
     elite: {
       features: ["Всё из тарифа PRO / Mentor", "1 реальный платный заказ от компании (30 000 ₸)", "Совместная сборка 1 креатива «под ключ»", "Разбор промптов и пайплайна до идеала", "Приоритетная обратная связь", "Личное видение автора курса", "Онлайн-созвоны с автором курса"],
       subs: ["", "портфолио, клиенты, бренд — создаем на деле", "идея → промпт → визуал → видео → звук → финал", "", "", "", ""],
-      priceKzt: "400 000 ₸",
-      priceRub: "≈ 72 700 ₽",
+      priceKzt: "390 000 ₸",
+      priceRub: "≈ 71 000 ₽",
     },
   },
   faq: {
@@ -507,19 +507,19 @@ const kz: TranslationKeys = {
     guaranteeText: "Басталғаннан кейін 7 күн ішінде курс сәйкес келмейтінін түсінсеңіз — төлемнің 100% қайтарамыз.",
     basic: {
       features: ["Барлық 8 модульге қол жетімділік", "5–6 сағат видео", "Презентациялар мен нұсқаулықтар", "Үй тапсырмалары", "ҮТ тексеру", "Жұмыстар бойынша кері байланыс"],
-      priceKzt: "120 000 ₸",
-      priceRub: "≈ 21 800 ₽",
+      priceKzt: "90 000 ₸",
+      priceRub: "≈ 16 400 ₽",
     },
     pro: {
       features: ["Basic тарифінің бәрі", "Курс авторының жеке қатысуы", "Әр креативті талдау", "Кадрлармен, жарықпен, қозғалыспен егжей-тегжейлі жұмыс", "Жылдамдатылған өсу және тереңдік"],
-      priceKzt: "200 000 ₸",
-      priceRub: "≈ 36 400 ₽",
+      priceKzt: "150 000 ₸",
+      priceRub: "≈ 27 300 ₽",
     },
     elite: {
       features: ["PRO / Mentor тарифінің бәрі", "Компаниядан 1 нақты ақылы тапсырыс (30 000 ₸)", "1 креативті «кілтке» бірге жинау", "Промпттер мен пайплайнды идеалға дейін талдау", "Басымдықты кері байланыс", "Курс авторының жеке көзқарасы", "Курс авторымен онлайн-қоңыраулар"],
       subs: ["", "портфолио, клиенттер, бренд — іс жүзінде жасаймыз", "идея → промпт → визуал → видео → дыбыс → финал", "", "", "", ""],
-      priceKzt: "400 000 ₸",
-      priceRub: "≈ 72 700 ₽",
+      priceKzt: "390 000 ₸",
+      priceRub: "≈ 71 000 ₽",
     },
   },
   faq: {
@@ -730,19 +730,19 @@ const en: TranslationKeys = {
     guaranteeText: "If within 7 days after the start you realize the course is not right for you, we will refund 100% of your payment.",
     basic: {
       features: ["Access to all 8 modules", "5–6 hours of video", "Presentations and guides", "Homework assignments", "Homework review", "Work feedback"],
-      priceKzt: "120,000 ₸",
-      priceRub: "≈ 21,800 ₽",
+      priceKzt: "90,000 ₸",
+      priceRub: "≈ 16,400 ₽",
     },
     pro: {
       features: ["Everything from Basic", "Personal involvement of the course author", "Review of each creative", "Detailed work with shots, light, motion", "Accelerated growth and depth"],
-      priceKzt: "200,000 ₸",
-      priceRub: "≈ 36,400 ₽",
+      priceKzt: "150,000 ₸",
+      priceRub: "≈ 27,300 ₽",
     },
     elite: {
       features: ["Everything from PRO / Mentor", "1 real paid order from a company (30,000 ₸)", "Joint assembly of 1 creative \"turnkey\"", "Prompt and pipeline review to perfection", "Priority feedback", "Course author's personal vision", "Online calls with the course author"],
       subs: ["", "portfolio, clients, brand — we create in practice", "idea → prompt → visual → video → sound → final", "", "", "", ""],
-      priceKzt: "400,000 ₸",
-      priceRub: "≈ 72,700 ₽",
+      priceKzt: "390,000 ₸",
+      priceRub: "≈ 71,000 ₽",
     },
   },
   faq: {
