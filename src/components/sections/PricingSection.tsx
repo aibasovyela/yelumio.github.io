@@ -11,14 +11,6 @@ const basicIcons = [Video, Zap, FileText, Check, Check, MessageCircle];
 const proIcons = [Check, Star, Zap, Check, Star];
 const eliteIcons = [Check, Briefcase, Sparkles, Zap, Star, Crown, Users];
 
-const WHATSAPP_NUMBER = "77026853038";
-
-const openWhatsApp = (planName: string) => {
-  const text = `Здравствуйте! Я хочу обучиться создавать ИИ креативы. Тариф который я выбрал: "${planName}".`;
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-  trackEvent("enroll_click", { location: "pricing", plan: planName });
-  window.open(url, "_blank", "noopener,noreferrer");
-};
 
 export const PricingSection = () => {
   const { t } = useLanguage();
