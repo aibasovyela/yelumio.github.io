@@ -74,7 +74,7 @@ export const PricingSection = () => {
                     );
                   })}
                 </ul>
-                <button className="btn-secondary w-full" onClick={() => openWhatsApp("Basic")}>
+                <button className="btn-secondary w-full" onClick={() => openPricingModal("Basic", t.pricing.basic.priceKzt)}>
                   {t.pricing.choosePlan} Basic
                 </button>
               </GlassCard>
