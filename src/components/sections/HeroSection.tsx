@@ -3,8 +3,6 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { COURSE_CONFIG } from "@/config/courseConfig";
 import { trackEvent } from "@/lib/analytics";
 
-import authorPhoto from "@/assets/author-photo.png";
-import authorPhotoWebp from "@/assets/author-photo.webp";
 
 const trustedBrands = ["Bambino", "RUMI", "Личный бренд врача", "Niette"];
 
@@ -68,21 +66,18 @@ export const HeroSection = () => {
 
           <div className="w-full max-w-2xl">
             <div className="relative p-3 rounded-2xl border border-primary/20 bg-card/40 backdrop-blur-xl shadow-[0_8px_40px_hsl(0_0%_0%/0.5)]">
-              <div className="relative overflow-hidden rounded-xl">
-                <picture>
-                  <source srcSet={authorPhotoWebp} type="image/webp" />
-                  <img
-                    src={authorPhoto}
-                    alt="Автор курса"
-                    className="w-full h-auto object-cover rounded-xl"
-                    style={{ aspectRatio: "21/9", objectPosition: "top" }}
-                    loading="eager"
-                    fetchPriority="high"
-                    decoding="async"
-                  />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/30" />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/5 mix-blend-overlay" />
+              <div className="relative overflow-hidden rounded-xl bg-black">
+                <video
+                  src="/hero-web.mp4"
+                  poster="/hero-poster.jpg"
+                  controls
+                  playsInline
+                  preload="auto"
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full h-auto rounded-xl"
+                />
               </div>
             </div>
           </div>
